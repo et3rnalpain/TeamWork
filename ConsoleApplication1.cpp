@@ -20,9 +20,12 @@ int main()
 {
 
 	TeacherMenu();
-
 	user users[100];
 	setlocale(LC_ALL, "rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
-	Autorization();
+	Autorization(users) 
+	{
+	
+	}
+
 }

@@ -1,3 +1,2 @@
 #pragma once
-
-int Autorization(user users[100]);
+void Autorization(user users[]);

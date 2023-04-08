@@ -3,7 +3,11 @@
 #include <iostream>
 using namespace std;
 
-int Autorization(user users[100])
+struct user {
+	string Login, Password, Name, Surname, type;
+};
+
+void Autorization(user users[])
 {
 	fstream fin;
 	fin.open("Logs.txt");
