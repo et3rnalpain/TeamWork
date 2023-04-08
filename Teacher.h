@@ -4,6 +4,12 @@ void TeacherAuthorization();
 
 void TeacherMenu();
 
-void QuestionChange();
+void QuestionWork();
 
 void StudentListChange();
+
+void QuestionDelete();
+void QuestionAdd();
+void QuestionChange();
+
+void QuestListOutput();

@@ -1,9 +1,10 @@
+#pragma once
 #include "FileModule.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
 
-int Autorization(user users[100])
+/*int Autorization(user users[100])
 {
 	fstream fin;
 	fin.open("Logs.txt");
@@ -13,4 +14,4 @@ int Autorization(user users[100])
 		fin >> users[i].Password;
 		fin >> users[i].type;
 	}
-}
+}*/

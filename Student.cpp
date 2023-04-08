@@ -2,11 +2,6 @@
 #include "Student.h"
 #include "Teacher.h"
 using namespace std;
-int StudentAuthorization()
-{
-
-	return 1;
-}
 
 void StudentMenu()
 {

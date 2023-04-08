@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <locale>
 #include "Student.h"
 #include "Teacher.h"
 #include "FileModule.h"
@@ -18,11 +19,12 @@ struct user {
 
 int main()
 {
-
+	setlocale(LC_ALL, "Russian");
+	QuestListOutput();
 	TeacherMenu();
 
 	user users[100];
 	setlocale(LC_ALL, "rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
-	Autorization();
+	
 }
