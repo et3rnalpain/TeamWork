@@ -4,6 +4,8 @@
 #include "Student.h"
 #include "Teacher.h"
 #include "FileModule.h"
+#include <locale.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -19,12 +21,10 @@ struct user {
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-	QuestListOutput();
-	TeacherMenu();
-
-	user users[100];
-	setlocale(LC_ALL, "rus");
-	cout << "Система тестирования по курсу Программирование" << endl;
 	
+	user users[100];
+	setlocale(LC_ALL, "Rus");
+	cout << "Система тестирования по курсу Программирование" << endl;
+	cout << Autorization(users);
+	system("pause");
 }
