@@ -1,3 +1,4 @@
+#pragma once
 #include "FileModule.h"
 #include <fstream>
 #include <iostream>

@@ -1,11 +1,13 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <locale>
 #include "Student.h"
 #include "Teacher.h"
 #include "FileModule.h"
 
 #include <locale.h>
 #include <stdlib.h>
+
 
 using namespace std;
 
