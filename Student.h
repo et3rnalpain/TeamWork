@@ -1,6 +1,6 @@
 #pragma once 
 
-void StudentAuthorization();
+int StudentAuthorization();
 
 void StudentMenu();
 
