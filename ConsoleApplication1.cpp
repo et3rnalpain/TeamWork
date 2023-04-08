@@ -4,7 +4,7 @@
 #include "Student.h"
 #include "Teacher.h"
 #include "FileModule.h"
-
+#include <string>
 #include <locale.h>
 #include <stdlib.h>
 
@@ -24,7 +24,7 @@ struct user {
 
 int main()
 {
-	
+	int answ;
 	user users[100];
 	question quests[100];
 	setlocale(LC_ALL, "Rus");
@@ -36,7 +36,16 @@ int main()
 	else 
 	{
 		DownloadingQuestions(quests); 
-		cout << quests[5].quest << " " << quests[5].answer << endl;
+		cout << quests[5].quest << endl << quests[5].var1 << endl << quests[5].var2 << endl << quests[5].var3 << endl << quests[5].var4 << endl;
+		cin >> answ;
+		if (answ == stoi(quests[5].answer))
+		{
+			cout << "Верно уебан!" << endl;
+		}
+		else
+		{
+			cout << "неВерно уебан!" << endl;
+		}
 		StudentMenu();
 		
 	}
