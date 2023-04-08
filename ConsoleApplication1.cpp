@@ -7,6 +7,7 @@
 #include <locale.h>
 #include <stdlib.h>
 
+
 using namespace std;
 
 struct question
