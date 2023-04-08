@@ -24,6 +24,13 @@ int main()
 	user users[100];
 	setlocale(LC_ALL, "Rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
-	cout << Autorization(users);
+	if (Autorization(users)==1) 
+	{
+		TeacherMenu();
+	}
+	else 
+	{
+		StudentMenu();
+	}
 	system("pause");
 }

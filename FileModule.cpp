@@ -31,7 +31,6 @@ int Autorization(user users[])
 				if (users[i].type == "teacher") return 1;
 				if (users[i].type == "student") return 0;
 			}
-			else cout << "¬веден неверный логин или пароль" << endl;
 		}
 	}
 	
