@@ -6,4 +6,4 @@ void TeacherMenu();
 
 void QuestionChange();
 
-void StudentList();
+void StudentListChange();
