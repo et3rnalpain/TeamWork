@@ -15,6 +15,7 @@ struct question
 {
 	int quest_num;
 	string quest, var1, var2, var3, var4;
+	string answer;
 };
 
 struct user {
@@ -25,6 +26,7 @@ int main()
 {
 	
 	user users[100];
+	question quests[100];
 	setlocale(LC_ALL, "Rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
 	if (Autorization(users)==1) 
@@ -33,7 +35,9 @@ int main()
 	}
 	else 
 	{
+		DownloadingQuestions(quests);
 		StudentMenu();
+		
 	}
 	system("pause");
 }

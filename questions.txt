@@ -1,6 +1,12 @@
-1question 1 ans 2 ans 3 ans 4 ans 2 correct ans
-1question 1 ans 2 ans 3 ans 4 ans 2 correct ans
-1question 1 ans 2 ans 3 ans 4 ans 2 correct ans
-1question 1 ans 2 ans 3 ans 4 ans 2 correct ans
-1question 1 ans 2 ans 3 ans 4 ans 2 correct ans
-1question 1 ans 2 ans 3 ans 4 ans 2 correct ans
+Какой оператор используется для начала цикла со счетчиком в C++? 
+1) while 
+2) do 
+3) for 
+4) loop
+3
+Какая функция используется для выполнения задержки в C++?
+1) wait() 
+2) delay() 
+3)sleep()
+4) pause()
+2
