@@ -2,6 +2,7 @@
 #include <fstream>
 #include "Student.h"
 #include "Teacher.h"
+#include "FileModule.h"
 
 using namespace std;
 
@@ -19,15 +20,5 @@ int main()
 	user users[100];
 	setlocale(LC_ALL, "rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
-	fstream fin;
-	fin.open("Logs.txt");
-	for (int i = 0; i < 100; i++) 
-	{
-		fin >> users[i].Login;
-		fin >> users[i].Password;
-		fin >> users[i].type;
-	}
-
-
-
+	Autorization();
 }
