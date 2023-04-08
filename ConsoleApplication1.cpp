@@ -36,6 +36,11 @@ int main()
 	else 
 	{
 		DownloadingQuestions(quests);
+		cout << "huynya " << quests[1].quest << endl;
+		cout << "huynya " << quests[1].var1 << endl;
+		cout << "huynya " << quests[1].var2 << endl;
+		cout << "huynya " << quests[1].var3 << endl;
+		cout << "huynya " << quests[1].var4 << endl;
 		StudentMenu();
 		
 	}

@@ -57,12 +57,12 @@ void DownloadingQuestions(question quests[])
 	fin.open("questions.txt");
 	while(!fin.eof())
 	{
-		getline(fin, line); quests[i].quest = line; cout << quests[i].quest << endl;
-		getline(fin, line); quests[i].var1 = line; cout << quests[i].var1 << endl;
-		getline(fin, line); quests[i].var2 = line; cout << quests[i].var2 << endl;
-		getline(fin, line); quests[i].var3 = line; cout << quests[i].var3 << endl;
-		getline(fin, line); quests[i].var4 = line; cout << quests[i].var4 << endl;
-		getline(fin, line); quests[i].answer = line; cout << quests[i].answer << endl;
+		getline(fin, line); quests[i].quest = line;
+		getline(fin, line); quests[i].var1 = line;
+		getline(fin, line); quests[i].var2 = line;
+		getline(fin, line); quests[i].var3 = line;
+		getline(fin, line); quests[i].var4 = line;
+		getline(fin, line); quests[i].answer = line;
 		i++;
 	}
 	fin.close();
