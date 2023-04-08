@@ -1,3 +1,4 @@
 #pragma once
+
 struct user;
-int Autorization(user users[])
+int Autorization(user users[]);

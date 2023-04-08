@@ -105,7 +105,7 @@ void QuestionAdd()
 		f >> quest;
 	}
 	
-
+	return;
 }
 
 void QuestionChange()
@@ -125,7 +125,8 @@ void QuestListOutput()
 		{
 			f >> text;
 			cout << text;
-		}
-		
+		}	
 	}
+
+	return;
 }
