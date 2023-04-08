@@ -1,2 +1,3 @@
 #pragma once
-void Autorization(user users[]);
+struct  user;
+int Autorization(user users[]);

@@ -2,6 +2,7 @@
 #include "Teacher.h"
 #include <iostream>
 #include <fstream>
+#include <locale.h>
 
 
 using namespace std;
@@ -11,6 +12,7 @@ void TeacherAuthorization()
 
 void TeacherMenu()
 {
+	setlocale(LC_ALL, "Rus");
 	int ch;
 	
 	cout << "1. Редактирование вопросов" << endl;
