@@ -19,12 +19,13 @@ int Autorization(user users[])
 		fin >> users[i].Password;
 		fin >> users[i].type;
 	}
-	cout << "¬ведите логин: " << endl;
-	cin >> log;
-	cout << "¬ведите пароль: " << endl;
-	cin >> pas;
+	
 	while (true)
 	{
+		cout << "¬ведите логин: " << endl;
+		cin >> log;
+		cout << "¬ведите пароль: " << endl;
+		cin >> pas;
 		for (int i = 0; i < 100; i++)
 		{
 			if (log == users[i].Login && pas == users[i].Password)
