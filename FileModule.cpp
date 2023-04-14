@@ -28,6 +28,16 @@ int GetQuestionsCount(string filename)
 	return x / 6;
 }
 
+int GetUsersCount(string filename) 
+{
+	int x = 0;
+	string v = "";
+	fstream fin;
+	fin.open(filename + ".txt");
+	while (!fin.eof()) { getline(fin, v); x++; }
+	return x;
+}
+
 int Autorization(user users[])
 {
 	fstream fin;
