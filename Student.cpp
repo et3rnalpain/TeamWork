@@ -17,9 +17,33 @@ int SetMark(int wrong, int &mark)
 	if (wrong >= 5) mark = 2;
 	return mark;
 }
+int SetMarkItog(int wrong, int& mark)
+{
+	if (wrong < 8) mark = 5;
+	if ((wrong < 16) && (wrong >= 8)) mark = 4;
+	if ((wrong < 20) && (wrong >= 16)) mark = 3;
+	if (wrong >= 20) mark = 2;
+	return mark;
+}
 void Rand(int* arr, char* name)
 {
 	for (int i = 0; i < 10; i++)
+	{
+		arr[i] = rand() % GetQuestionsCount(name);
+
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[j] == arr[i])
+			{
+				--i;
+				break;
+			}
+		}
+	}
+}
+void Rand5(int* arr, const char* name)
+{
+	for (int i = 0; i < 5; i++)
 	{
 		arr[i] = rand() % GetQuestionsCount(name);
 
@@ -421,7 +445,52 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 
 void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
+	int ch;
 	int wrong = 0;
+	int mark;
+	int arr1[5], arr2[5], arr3[5], arr4[5], arr5[5], arr6[5], arr7[5], arr8[5];
+	Rand5(arr1, "1questionsCyphered"); Rand5(arr2, "2questionsCyphered"); Rand5(arr3, "3questionsCyphered");
+	Rand5(arr4, "4questionsCyphered"); Rand5(arr5, "5questionsCyphered"); Rand5(arr6, "6questionsCyphered");
+	Rand5(arr7, "7questionsCyphered"); Rand5(arr8, "8questionsCyphered");
+	int answer;
+	do
+	{
+		cout << endl << "Итоговый тест" << endl;
+		cout << "1. Начать" << endl;
+		cout << "0. Выход" << endl;
+		cin >> ch;
+		switch (ch)
+		{
+		case 1:
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				cout << cycles[arr1[i]].quest << endl << cycles[arr1[i]].var1 << endl << cycles[arr1[i]].var2 << endl << cycles[arr1[i]].var3 << endl << cycles[arr1[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(cycles[arr1[i]].answer)) wrong++;
+				cout << mass[arr2[i]].quest << endl << mass[arr2[i]].var1 << endl << mass[arr2[i]].var2 << endl << mass[arr2[i]].var3 << endl << mass[arr2[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(mass[arr2[i]].answer)) wrong++;
+				cout << stroki[arr3[i]].quest << endl << stroki[arr3[i]].var1 << endl << stroki[arr3[i]].var2 << endl << stroki[arr3[i]].var3 << endl << stroki[arr3[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(stroki[arr3[i]].answer)) wrong++;
+				cout << recurse[arr4[i]].quest << endl << recurse[arr4[i]].var1 << endl << recurse[arr4[i]].var2 << endl << recurse[arr4[i]].var3 << endl << recurse[arr4[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(recurse[arr4[i]].answer)) wrong++;
+				cout << structs[arr5[i]].quest << endl << structs[arr5[i]].var1 << endl << structs[arr5[i]].var2 << endl << structs[arr5[i]].var3 << endl << structs[arr5[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(structs[arr5[i]].answer)) wrong++;
+				cout << files[arr6[i]].quest << endl << files[arr6[i]].var1 << endl << files[arr6[i]].var2 << endl << files[arr6[i]].var3 << endl << files[arr6[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(files[arr6[i]].answer)) wrong++;
+				cout << adress[arr7[i]].quest << endl << adress[arr7[i]].var1 << endl << adress[arr7[i]].var2 << endl << adress[arr7[i]].var3 << endl << adress[arr7[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(adress[arr7[i]].answer)) wrong++;
+				cout << dynamic[arr8[i]].quest << endl << dynamic[arr8[i]].var1 << endl << dynamic[arr8[i]].var2 << endl << dynamic[arr8[i]].var3 << endl << dynamic[arr8[i]].var4 << endl;
+				cin >> answer; if (answer != stoi(dynamic[arr8[i]].answer)) wrong++;
+			}
+			cout << endl << "Кол-во ошибок: " << wrong << endl;
+			SetMarkItog(wrong, mark);
+			cout << endl << "Ваша оценка: " << mark << endl;
+		}break;
+		case 0: break;
+		default: cout << "Неправильный выбор пункта меню" << endl; break;
+		}
+	} while (ch != 0);
+	return;
 }
 
 void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
