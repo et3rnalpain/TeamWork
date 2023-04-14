@@ -57,7 +57,6 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 			int arr[10];
 			char name[20] = "questionsCyphered1";
 			Rand(arr, name);
-			for (int i = 0; i < 10; i++) cout << arr[i] << " ";
 			for (int i = 0; i < 10; i++)
 			{
 				cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
@@ -209,7 +208,6 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int arr[10];
 			char name[20] = "questionsCyphered1";
 			Rand(arr, name);
-			for (int i = 0; i < 10; i++) cout << arr[i] << " ";
 			for (int i = 0; i < 10; i++)
 			{
 				cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
@@ -419,7 +417,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 	return;
 }
 
-void ExaminationMode()
+void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
 }
 
@@ -435,7 +433,7 @@ void StudentMenu(question cycles[], question mass[], question stroki[], question
 	{
 	case 1: TrainingMode(cycles, mass, stroki, recurse, structs,files,adress,dynamic); break;
 	case 2: TestingMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
-	case 3: ExaminationMode(); break;
+	case 3: ExaminationMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
 	default: cout << "Неверный пункт меню";
 	}
 }
