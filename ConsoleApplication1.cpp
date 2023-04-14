@@ -22,6 +22,13 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
 	DownloadingQuestions(questsCycle,"questionsCyphered1.txt");
-	StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
+	if (Autorization(users) == 1) 
+	{
+		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
+	}
+	else 
+	{
+		StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
+	}
 	system("pause");
 }
