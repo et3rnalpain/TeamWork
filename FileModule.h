@@ -13,6 +13,7 @@ struct question {
 	string quest, var1, var2, var3, var4;
 	string answer;
 }; // Вопрос
+int GetQuestionsCount(string filename);
 void shifrtextfile(string filename);
 string shifrtext(string text);
 void deshifrtextfile(string filename);
