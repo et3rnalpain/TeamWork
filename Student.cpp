@@ -32,7 +32,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 		case 1:
 		{
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				j = rand() % 30;
 				cout << cycles[j].quest << endl << cycles[j].var1 << endl << cycles[j].var2 << endl << cycles[j].var3 << endl << cycles[j].var4 << endl;
