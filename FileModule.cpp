@@ -206,8 +206,8 @@ string shifrtext(string text)
 	{
 		if (text[j] == ' ')
 			result += text[j];
-		if (text[j] == '\n')
-			result += text[j];
+		//if (text[j] == '\n')
+			//result += text[j];
 		for (int i = 0; i < 34; i++)
 		{
 			if (text[j] == bukva.buk[i])
