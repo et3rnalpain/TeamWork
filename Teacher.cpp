@@ -18,7 +18,8 @@ void StudentListChange(user users[])
 	cout << "2. Удалить студента " << endl;
 	cout << "3. Вывести список студентов. " << endl;
 	cout << "Нажмите 0, чтобы выйти" << endl;
-	
+	cin >> ch;
+
 	while (ch < 0 || ch > 3)
 	{
 		system("cls");
@@ -28,7 +29,9 @@ void StudentListChange(user users[])
 		cout << "2. Удалить студента " << endl;
 		cout << "3. Вывести список студентов. " << endl;
 		cout << "Нажмите 0, чтобы выйти" << endl;
+		cin >> ch;
 	}
+
 	do {
 		switch (ch)
 		{
@@ -55,11 +58,12 @@ void StudentListChange(user users[])
 			users[GetUsersCount("LogsCyphered") + 1].oi = 0;
 			users[GetUsersCount("LogsCyphered") + 1].os = 0;
 		}
+
 		case 2: {
 			string delete_name, delete_surname;
 			cout << "Введите фамилию студента, которого необходимо удалить: "; cin >> delete_surname;
 			cout << "Введите имя нового студента, которого необходимо удалить: "; cin >> delete_name;
-			
+
 			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 			{
 				if (users[i].Surname == delete_surname && users[i].Name == delete_name)
@@ -98,15 +102,17 @@ void StudentListChange(user users[])
 
 				}
 			}
+		}
+
 		case 3: {
 			cout << "Список студентов: " << endl << endl;
 
 			for (int i; i < GetUsersCount("LogsCyphered"); i++)
 			{
-				cout << 
+
 			}
 		}
-		}
+		
 
 		}
 	} while (ch != 0);
@@ -199,7 +205,7 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 	} while (ch2 != 0);
 }
 
-void TeacherMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
+void TeacherMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[], user users[])
 {
 	setlocale(LC_ALL, "Rus");
 	int ch;
