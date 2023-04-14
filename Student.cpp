@@ -12,6 +12,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 {
 	int ch1, answer;
 	int j;
+	cout << GetQuestionsCount("questionsCyphered1");
 	
 	do
 	{
@@ -34,7 +35,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered1");
 				cout << cycles[j].quest << endl << cycles[j].var1 << endl << cycles[j].var2 << endl << cycles[j].var3 << endl << cycles[j].var4 << endl;
 				do
 				{
