@@ -433,26 +433,6 @@ void ExaminationMode(question cycles[], question mass[], question stroki[], ques
 	char name[20] = "questionsCyphered8";
 	Rand(arr, name);
 	int c1, c2, c3, c4, c5, c6, c7, c8;
-	for (int i = 0; i < 8; i++)
-	{
-		c1 = rand() % GetQuestionsCount("questionsCyphered1");
-		cout << cycles[c1].quest << endl << cycles[c1].var1 << endl << cycles[c1].var2 << endl << cycles[c1].var3 << endl << cycles[c1].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[c1].answer))wrong++;
-		cout << mass[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-		cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-		cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-		cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-		cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-		cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-		cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
-		cin >> answer; if (answer != stoi(cycles[arr[i]].answer)) wrong++;
-	}
 }
 
 void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
