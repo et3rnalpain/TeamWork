@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include <algorithm>
 #include "FileModule.h"
 using namespace std;
 
@@ -419,7 +420,19 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 
 void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
-	int arr[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int answer;
+	int wrong = 0;
+	int wrongs[40];
+	int mark;
+	int allquest[300];
+	srand(time(NULL));
+	int arrt[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	random_shuffle(begin(arrt), end(arrt));
+	for (int i = 0; i < 8; i++) cout << arrt[i] << " ";
+	int arr[40];
+	char name[20] = "questionsCyphered8";
+	Rand(arr, name);
+	int c1, c2, c3, c4, c5, c6, c7, c8;
 }
 
 void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
