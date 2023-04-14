@@ -57,23 +57,24 @@ int Autorization(user users[])
 	string log, pas;
 
 	fin.open("LogsCyphered.txt");
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 	{
-		fin >> users[i].Login; users[i].Login = deshifrtext(users[i].Login);
-		fin >> users[i].Password; users[i].Password = deshifrtext(users[i].Password);
-		fin >> users[i].type; users[i].type = deshifrtext(users[i].type);
-		fin >> users[i].Name; users[i].Name = deshifrtext(users[i].Name);
-		fin >> users[i].Surname; users[i].Surname = deshifrtext(users[i].Surname);
-		fin >> users[i].o1;  users[i].o1 = deshifrtext(to_string(users[i].o1));
-		fin >> users[i].o2;  users[i].o2 = deshifrtext(users[i].o1);
-		fin >> users[i].o3;  users[i].o3 = deshifrtext(users[i].o1);
-		fin >> users[i].o4;  users[i].o4 = deshifrtext(users[i].o1);
-		fin >> users[i].o5;  users[i].o5 = deshifrtext(users[i].o1);
-		fin >> users[i].o6;  users[i].o6 = deshifrtext(users[i].o1);
-		fin >> users[i].o7;  users[i].o7 = deshifrtext(users[i].o1);
-		fin >> users[i].o8;  users[i].o8 = deshifrtext(users[i].o1);
-		fin >> users[i].oi;  users[i].oi = deshifrtext(users[i].o1);
-		fin >> users[i].os;  users[i].os = deshifrtext(users[i].o1);
+		string line;
+		fin >> line; users[i].Login = deshifrtext(line);
+		fin >> line; users[i].Password = deshifrtext(line);
+		fin >> line; users[i].type = deshifrtext(line);
+		fin >> line; users[i].Name = deshifrtext(line);
+		fin >> line; users[i].Surname = deshifrtext(line);
+		fin >> line;  users[i].o1 = stoi(line)-1;
+		fin >> line;  users[i].o2 = stoi(line)-1;
+		fin >> line;  users[i].o3 = stoi(line)-1;
+		fin >> line;  users[i].o4 = stoi(line)-1;
+		fin >> line;  users[i].o5 = stoi(line)-1;
+		fin >> line;  users[i].o6 = stoi(line)-1;
+		fin >> line;  users[i].o7 = stoi(line)-1;
+		fin >> line;  users[i].o8 = stoi(line)-1;
+		fin >> line;  users[i].oi = stoi(line) - 1;
+		fin >> line;  users[i].os = stoi(line) - 1;
 	}
 	
 	while (true)
