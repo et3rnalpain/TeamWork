@@ -18,6 +18,19 @@ struct Bukva
 	char bukAb[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 };
 
+void UpdateUsersLogs(user users[])
+{
+	string space = " ";
+	fstream f;
+	f.open("LogsCyphered",ios::out);
+	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++) 
+	{
+		f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " "
+			<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
+			<< shifrtext(to_string(users[i].o6)) << " " << shifrtext(to_string(users[i].o7)) << " " << shifrtext(to_string(users[i].o8)) << " " << shifrtext(to_string(users[i].oi)) << " " << shifrtext(to_string(users[i].os)) << endl;
+	}
+}
+
 int GetQuestionsCount(string filename)
 {
 	int x = 0;
