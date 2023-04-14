@@ -12,8 +12,6 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 {
 	int ch1, answer;
 	int j;
-	cout << GetQuestionsCount("questionsCyphered1");
-	
 	do
 	{
 		cout << endl << "Тренинг по теме" << endl << endl;
@@ -48,7 +46,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered2");
 				cout << mass[j].quest << endl << mass[j].var1 << endl << mass[j].var2 << endl << mass[j].var3 << endl << mass[j].var4 << endl;
 				do
 				{
@@ -61,7 +59,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered3");
 				cout << stroki[j].quest << endl << stroki[j].var1 << endl << stroki[j].var2 << endl << stroki[j].var3 << endl << stroki[j].var4 << endl;
 				do
 				{
@@ -74,7 +72,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered4");
 				cout << recurse[j].quest << endl << recurse[j].var1 << endl << recurse[j].var2 << endl << recurse[j].var3 << endl << recurse[j].var4 << endl;
 				do
 				{
@@ -87,7 +85,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered5");
 				cout << structs[j].quest << endl << structs[j].var1 << endl << structs[j].var2 << endl << structs[j].var3 << endl << structs[j].var4 << endl;
 				do
 				{
@@ -100,7 +98,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered6");
 				cout << files[j].quest << endl << files[j].var1 << endl << files[j].var2 << endl << files[j].var3 << endl << files[j].var4 << endl;
 				do
 				{
@@ -113,7 +111,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered7");
 				cout << adress[j].quest << endl << adress[j].var1 << endl << adress[j].var2 << endl << adress[j].var3 << endl << adress[j].var4 << endl;
 				do
 				{
@@ -126,7 +124,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				j = rand() % 30;
+				j = rand() % GetQuestionsCount("questionsCyphered8");
 				cout << dynamic[j].quest << endl << dynamic[j].var1 << endl << dynamic[j].var2 << endl << dynamic[j].var3 << endl << dynamic[j].var4 << endl;
 				do
 				{
