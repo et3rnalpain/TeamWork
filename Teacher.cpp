@@ -85,7 +85,7 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 		{
 		case 1: QuestionDelete(cycles,mass,stroki,recurse,structs,files,adress,dynamic); break;
 		case 2: QuestionAdd(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
-		case 3: QuestionChange(); break;
+		case 3: QuestionChange(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
 		case 0: return;
 		}
 
@@ -115,7 +115,7 @@ void TeacherMenu(question cycles[], question mass[], question stroki[], question
 	do {
 		switch (ch)
 		{
-		case 1: QuestionChange(); break;
+		case 1: QuestionChange(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
 		case 2: StudentListChange(); break;
 		case 0: return;
 		}
