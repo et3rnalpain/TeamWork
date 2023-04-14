@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <locale.h>
+#include <iomanip>
 #include "FileModule.h"
 
 using namespace std;
@@ -57,6 +58,8 @@ void StudentListChange(user users[])
 			users[GetUsersCount("LogsCyphered") + 1].o8 = 0;
 			users[GetUsersCount("LogsCyphered") + 1].oi = 0;
 			users[GetUsersCount("LogsCyphered") + 1].os = 0;
+
+			users[GetUsersCount("LogsCyphered") + 1].type = "student";
 		}
 
 		case 2: {
@@ -99,7 +102,6 @@ void StudentListChange(user users[])
 					users[GetUsersCount("LogsCyphered")].o8 = 0;
 					users[GetUsersCount("LogsCyphered")].oi = 0;
 					users[GetUsersCount("LogsCyphered")].os = 0;
-
 				}
 			}
 		}
@@ -107,9 +109,18 @@ void StudentListChange(user users[])
 		case 3: {
 			cout << "—писок студентов: " << endl << endl;
 
-			for (int i; i < GetUsersCount("LogsCyphered"); i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 			{
+				cout << users[i].Name << users[i].Surname << endl;
+				cout << "Ћогин: " << users[i].Login << endl;
+				cout << "ѕароль: " << users[i].Password << endl;
 
+				cout << endl;
+
+				cout << "ќценки: " << setw(10) << users[i].o1 << users[i].o2 << users[i].o3 << users[i].o4 << users[i].o5
+					<< users[i].o6 << users[i].o7 << users[i].o8 << endl;
+				cout << "—редний балл: " << users[i].os << endl;
+				cout << "ќценка за итоговый тест: " << users[i].oi << endl;
 			}
 		}
 		
