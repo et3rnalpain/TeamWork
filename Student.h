@@ -4,6 +4,6 @@ void StudentMenu(question cycles[], question mass[], question stroki[], question
 
 void TrainingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[]);
 
-void TestingMode();
+void TestingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[]);
 
 void ExaminationMode();
