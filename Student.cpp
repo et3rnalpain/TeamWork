@@ -253,10 +253,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << mass[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 3:
@@ -282,10 +279,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << stroki[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 4:
@@ -311,10 +305,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << recurse[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 5:
@@ -340,10 +331,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << structs[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 6:
@@ -369,10 +357,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << files[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 7:
@@ -398,10 +383,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << adress[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 8:
@@ -427,10 +409,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << dynamic[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 0: break;
