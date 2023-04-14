@@ -8,6 +8,29 @@
 #include "FileModule.h"
 using namespace std;
 
+void SetMark(int wrong, int &mark)
+{
+	if (wrong < 2) mark = 5;
+	if ((wrong < 4) && (wrong >= 2)) mark = 4;
+	if ((wrong < 5) && (wrong >= 4)) mark = 3;
+	if (wrong >= 5) mark = 2;
+}
+void Rand(int* arr, char* name)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		arr[i] = rand() % GetQuestionsCount(name);
+
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[j] == arr[i])
+			{
+				--i;
+				break;
+			}
+		}
+	}
+}
 void TrainingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
 	int ch1, answer;
@@ -271,7 +294,9 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
+			char name[20] = "questionsCyphered1";
+			Rand(arr, name);
+			/*for (int i = 0; i < 10; i++)
 			{
 				arr[i] = rand() % GetQuestionsCount("questionsCyphered1");
 
@@ -283,7 +308,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 						break;
 					}
 				}
-			}
+			}*/
+			for (int i; i < 10; i++) cout << arr[i] << " ";
 			for (int i = 0; i < 10; i++)
 			{
 				cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
@@ -302,10 +328,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << cycles[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 2:
