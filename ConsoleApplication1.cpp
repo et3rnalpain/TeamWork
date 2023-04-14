@@ -10,31 +10,19 @@
 
 int main()
 {
+	question questsCycle[50];
+	question questsMassive[50];
+	question questsStroki[50];
+	question questsRecursia[50];
+	question questsStructure[50];
+	question questsFiles[50];
+	question questsAdress[50];
+	question questsDynamicMemory[50];
 	user users[100];
-	question quests[100];
-	DownloadingQuestions(quests);
-	int answ;
 	setlocale(LC_ALL, "Rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
-	shifr("questions");
-	if (Autorization(users)==1) 
-	{
-		TeacherMenu();
-	}
-	else 
-	{
-		cout << quests[5].quest << endl << quests[5].var1 << endl << quests[5].var2 << endl << quests[5].var3 << endl << quests[5].var4 << endl;
-		cin >> answ;
-		if (answ == stoi(quests[5].answer))
-		{
-			cout << "Верно уебан!" << endl;
-		}
-		else
-		{
-			cout << "неВерно уебан!" << endl;
-		}
-		StudentMenu();
-		
-	}
+	DownloadingQuestions(questsCycle,"questionsCyphered1.txt");
+	StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
+	//TrainingMode(questsCycle);// , questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
 	system("pause");
 }

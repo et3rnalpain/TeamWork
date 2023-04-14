@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 struct Bukva
 {
 	char num[11] = "1234567890";
@@ -24,12 +23,24 @@ int Autorization(user users[])
 	fstream fin;
 	string log, pas;
 
-	fin.open("Logs.txt");
+	fin.open("LogsCyphered.txt");
 	for (int i = 0; i < 100; i++)
 	{
 		fin >> users[i].Login;
 		fin >> users[i].Password;
 		fin >> users[i].type;
+		fin >> users[i].Name;
+		fin >> users[i].Surname;
+		fin >> users[i].o1;
+		fin >> users[i].o2;
+		fin >> users[i].o3;
+		fin >> users[i].o4;
+		fin >> users[i].o5;
+		fin >> users[i].o6;
+		fin >> users[i].o7;
+		fin >> users[i].o8;
+		fin >> users[i].oi;
+		fin >> users[i].os;
 	}
 	
 	while (true)
@@ -51,27 +62,30 @@ int Autorization(user users[])
 
 
 }
-void DownloadingQuestions(question quests[])
+void DownloadingQuestions(question quests[], string filename)
 {
-	//SetConsoleCP(1251);
+	SetConsoleCP(1251);
 	string line;
 	int i = 0;
 	ifstream fin;
-	fin.open("questions.txt");
-	while(!fin.eof())
+	fin.open(filename);
+	if (fin.is_open())
 	{
-		getline(fin, line); quests[i].quest = line;
-		getline(fin, line); quests[i].var1 = line;
-		getline(fin, line); quests[i].var2 = line;
-		getline(fin, line); quests[i].var3 = line;
-		getline(fin, line); quests[i].var4 = line;
-		getline(fin, line); quests[i].answer = line;
-		i++;
-	}
+		while (!fin.eof())
+		{
+			getline(fin, line); quests[i].quest = deshifrtext(line);
+			getline(fin, line); quests[i].var1 = deshifrtext(line);
+			getline(fin, line); quests[i].var2 = deshifrtext(line);
+			getline(fin, line); quests[i].var3 = deshifrtext(line);
+			getline(fin, line); quests[i].var4 = deshifrtext(line);
+			getline(fin, line); quests[i].answer = deshifrtext(line);
+			i++;
+		}
 	fin.close();
+	}
 
 }
-void shifr(string filename)
+void shifrtextfile(string filename)
 {
 	setlocale(LC_ALL, "Russian");
 	SetConsoleCP(1251);
@@ -79,9 +93,8 @@ void shifr(string filename)
 	ofstream f2;
 	char a;
 	Bukva bukva;
-	int k = 0, count = 0;
-	f1.open(filename+=".txt");
-	f2.open("text2.txt");
+	f1.open(filename+".txt");
+	f2.open(filename+= "Cyphered.txt");
 	if (!f1.is_open() || !f2.is_open())
 		cout << "Ошибка открытия файла!" << endl;
 	else
@@ -151,7 +164,76 @@ void shifr(string filename)
 		f2.close();
 	}
 }
-void deshifr()
+string shifrtext(string text) 
+{
+	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(1251);
+	Bukva bukva;
+	string result = "";
+	for (int j = 0; j < text.length(); j++) 
+	{
+		if (text[j] == ' ')
+			result += text[j];
+		if (text[j] == '\n')
+			result += text[j];
+		for (int i = 0; i < 34; i++)
+		{
+			if (text[j] == bukva.buk[i])
+			{
+				if (text[j] == 'я')
+					result += "а";
+				else
+					result += bukva.buk[i + 1];
+			}
+			if (text[j] == bukva.bukb[i])
+			{
+				if (text[j] == 'Я')
+					result += "А";
+				else
+					result += bukva.buk[i + 1];
+			}
+		}
+		for (int i1 = 0; i1 < 28; i1++)
+		{
+			if (text[j] == bukva.znak[i1])
+			{
+				if (text[j] == '?')
+					result += '!';
+				else
+					result += bukva.znak[i1];
+			}
+		}
+		for (int i2 = 0; i2 < 27; i2++)
+		{
+			if (text[j] == bukva.bukA[i2])
+			{
+				if (text[j] == 'z')
+					result += 'a';
+				else
+					result += bukva.bukA[i2 + 1];
+			}
+			if (text[j] == bukva.bukAb[i2])
+			{
+				if (text[j] == 'Z')
+					result += 'A';
+				else
+					result += bukva.bukAb[i2 + 1];
+			}
+		}
+		for (int i3 = 0; i3 < 11; i3++)
+		{
+			if (text[j] == bukva.num[i3])
+			{
+				if (text[j] == '0')
+					result += '1';
+				else
+					result += bukva.num[i3 + 1];
+			}
+		}
+	}	
+	return result;
+}
+void deshifrtextfile(string filename)
 {
 	setlocale(LC_ALL, "Russian");
 	SetConsoleCP(1251);
@@ -159,7 +241,6 @@ void deshifr()
 	ofstream f2;
 	char a;
 	Bukva bukva;
-	int k = 0, count = 0;
 	f1.open("text2.txt");
 	f2.open("text.txt");
 	if (!f1.is_open() || !f2.is_open())
@@ -230,4 +311,73 @@ void deshifr()
 		f1.close();
 		f2.close();
 	}
+}
+string deshifrtext(string text) 
+{
+	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(1251);
+	Bukva bukva;
+	string result = "";
+	for (int j = 0; j < text.length(); j++)
+	{
+		if (text[j] == ' ')
+			result += text[j];
+		if (text[j] == '\n')
+			result += text[j];
+		for (int i = 0; i < 34; i++)
+		{
+			if (text[j] == bukva.buk[i])
+			{
+				if (text[j] == 'а')
+					result += 'я';
+				else
+					result += bukva.buk[i - 1];
+			}
+			if (text[j] == bukva.bukb[i])
+			{
+				if (text[j] == 'А')
+					result += 'Я';
+				else
+					result += bukva.bukb[i - 1];
+			}
+		}
+		for (int i1 = 0; i1 < 28; i1++)
+		{
+			if (text[j] == bukva.znak[i1])
+			{
+				if (text[j] == '!')
+					result += '?';
+				else
+					result += bukva.znak[i1];
+			}
+		}
+		for (int i2 = 0; i2 < 27; i2++)
+		{
+			if (text[j] == bukva.bukA[i2])
+			{
+				if (text[j] == 'a')
+					result += 'z';
+				else
+					result += bukva.bukA[i2 - 1];
+			}
+			if (text[j] == bukva.bukAb[i2])
+			{
+				if (text[j] == 'A')
+					result += 'Z';
+				else
+					result += bukva.bukAb[i2 - 1];
+			}
+		}
+		for (int i3 = 0; i3 < 11; i3++)
+		{
+			if (text[j] == bukva.num[i3])
+			{
+				if (text[j] == '1')
+					result += '0';
+				else
+					result += bukva.num[i3 - 1];
+			}
+		}
+	}
+	return result;
 }
