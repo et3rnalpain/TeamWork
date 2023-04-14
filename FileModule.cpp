@@ -24,7 +24,7 @@ int GetQuestionsCount(string filename)
 	string v = "";
 	fstream fin;
 	fin.open(filename + ".txt");
-	while (fin.eof()) { getline(fin, v); x++;}
+	while (!fin.eof()) { getline(fin, v); x++;}
 	return x / 6;
 }
 
