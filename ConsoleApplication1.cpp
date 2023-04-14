@@ -25,7 +25,7 @@ int main()
 	shifrtextfile("Logs");
 	if (Autorization(users) == 1)
 	{
-		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory, users);
+		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users);
 	}
 	else 
 	{
