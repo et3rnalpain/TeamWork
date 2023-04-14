@@ -22,7 +22,14 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	cout << "Система тестирования по курсу Программирование" << endl;
 	DownloadingQuestions(questsCycle,"questionsCyphered1.txt");
-	shifrtextfile("Logs");
+	DownloadingQuestions(questsMassive, "questions2Cyphered.txt");
+	DownloadingQuestions(questsStroki, "questions3Cyphered.txt");
+	DownloadingQuestions(questsRecursia, "questions4Cyphered.txt");
+	DownloadingQuestions(questsStructure, "questions5Cyphered.txt");
+	DownloadingQuestions(questsFiles, "questions6Cyphered.txt");
+	DownloadingQuestions(questsAdress, "questions7Cyphered.txt");
+	DownloadingQuestions(questsDynamicMemory, "questions8Cyphered.txt");
+
 	if (Autorization(users) == 1)
 	{
 		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users);

@@ -6,7 +6,7 @@ using namespace std;
 struct user {
 	string Login, Password, Name, Surname, type;
 	int o1, o2, o3, o4, o5, o6, o7, o8;
-	double oi, os;
+	int oi, os;
 }; // Пользователь
 struct question {
 	int quest_num, numtema;

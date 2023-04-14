@@ -59,7 +59,7 @@ void StudentListChange(user users[])
 			users[GetUsersCount("LogsCyphered") + 1].oi = 0;
 			users[GetUsersCount("LogsCyphered") + 1].os = 0;
 			UpdateUsersLogs(users);
-		}
+		}; break;
 
 		case 2: {
 			string delete_name, delete_surname;

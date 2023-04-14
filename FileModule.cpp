@@ -22,10 +22,10 @@ void UpdateUsersLogs(user users[])
 {
 	string space = " ";
 	fstream f;
-	f.open("LogsCyphered",ios::out);
-	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++) 
+	f.open("LogsCyphered.txt");
+	for (int i = 0; i < GetUsersCount("LogsCyphered")+1; i++) 
 	{
-		f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " "
+		f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " " 
 			<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
 			<< shifrtext(to_string(users[i].o6)) << " " << shifrtext(to_string(users[i].o7)) << " " << shifrtext(to_string(users[i].o8)) << " " << shifrtext(to_string(users[i].oi)) << " " << shifrtext(to_string(users[i].os)) << endl;
 	}
@@ -65,18 +65,17 @@ int Autorization(user users[])
 		fin >> line; users[i].type = deshifrtext(line);
 		fin >> line; users[i].Name = deshifrtext(line);
 		fin >> line; users[i].Surname = deshifrtext(line);
-		fin >> line;  users[i].o1 = stoi(line)-1;
-		fin >> line;  users[i].o2 = stoi(line)-1;
-		fin >> line;  users[i].o3 = stoi(line)-1;
-		fin >> line;  users[i].o4 = stoi(line)-1;
-		fin >> line;  users[i].o5 = stoi(line)-1;
-		fin >> line;  users[i].o6 = stoi(line)-1;
-		fin >> line;  users[i].o7 = stoi(line)-1;
-		fin >> line;  users[i].o8 = stoi(line)-1;
+		fin >> line;  users[i].o1 = stoi(line) - 1;
+		fin >> line;  users[i].o2 = stoi(line) - 1;
+		fin >> line;  users[i].o3 = stoi(line) - 1;
+		fin >> line;  users[i].o4 = stoi(line) - 1;
+		fin >> line;  users[i].o5 = stoi(line) - 1;
+		fin >> line;  users[i].o6 = stoi(line) - 1;
+		fin >> line;  users[i].o7 = stoi(line) - 1;
+		fin >> line;  users[i].o8 = stoi(line) - 1;
 		fin >> line;  users[i].oi = stoi(line) - 1;
 		fin >> line;  users[i].os = stoi(line) - 1;
 	}
-	
 	while (true)
 	{
 		cout << "Введите логин: " << endl;
@@ -93,8 +92,6 @@ int Autorization(user users[])
 		}
 	}
 	fin.close();
-
-
 }
 void DownloadingQuestions(question quests[], string filename)
 {
@@ -128,7 +125,7 @@ void shifrtextfile(string filename)
 	char a;
 	Bukva bukva;
 	f1.open(filename+".txt");
-	f2.open(filename+= "Cyphered.txt");
+	f2.open(filename+"Cyphered.txt");
 	if (!f1.is_open() || !f2.is_open())
 		cout << "Ошибка открытия файла!" << endl;
 	else
