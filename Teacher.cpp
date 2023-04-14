@@ -116,8 +116,8 @@ void StudentListChange(user users[])
 
 				cout << endl;
 
-				cout << "ќценки: " << setw(10) << users[i].o1 << users[i].o2 << users[i].o3 << users[i].o4 << users[i].o5
-					<< users[i].o6 << users[i].o7 << users[i].o8 << endl;
+				cout << "ќценки: " << setw(10) << users[i].o1 << " " << users[i].o2 << " " << users[i].o3 << " " << users[i].o4 << " " << users[i].o5
+					<< " " << users[i].o6 << " " << users[i].o7 << " " << users[i].o8 << endl;
 				cout << "—редний балл: " << users[i].os << endl;
 				cout << "ќценка за итоговый тест: " << users[i].oi << endl;
 			}
