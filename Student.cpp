@@ -72,7 +72,7 @@ void StudentMenu(question cycles[], question mass[], question stroki[], question
 	cout << "Введите пункт меню: "; cin >> ch;
 	switch (ch)
 	{
-	case 1: TrainingMode(cycles); break;
+	case 1: TrainingMode(cycles,mass,stroki,recurse,structs,files,adress,dynamic); break;
 	case 2: TestingMode(); break;
 	case 3: ExaminationMode(); break;
 	default: cout << "Неверный пункт меню";

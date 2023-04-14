@@ -23,6 +23,5 @@ int main()
 	cout << "Система тестирования по курсу Программирование" << endl;
 	DownloadingQuestions(questsCycle,"questionsCyphered1.txt");
 	StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
-	//TrainingMode(questsCycle);// , questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
 	system("pause");
 }
