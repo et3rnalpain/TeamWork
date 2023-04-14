@@ -54,27 +54,28 @@ int GetUsersCount(string filename)
 int Autorization(user users[])
 {
 	fstream fin;
-	string log, pas;
+	string log, pas, line;
 
 	fin.open("LogsCyphered.txt");
 	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 	{
-		string line;
-		fin >> line; users[i].Login = deshifrtext(line);
-		fin >> line; users[i].Password = deshifrtext(line);
-		fin >> line; users[i].type = deshifrtext(line);
-		fin >> line; users[i].Name = deshifrtext(line);
-		fin >> line; users[i].Surname = deshifrtext(line);
-		fin >> line;  users[i].o1 = stoi(line) - 1;
-		fin >> line;  users[i].o2 = stoi(line) - 1;
-		fin >> line;  users[i].o3 = stoi(line) - 1;
-		fin >> line;  users[i].o4 = stoi(line) - 1;
-		fin >> line;  users[i].o5 = stoi(line) - 1;
-		fin >> line;  users[i].o6 = stoi(line) - 1;
-		fin >> line;  users[i].o7 = stoi(line) - 1;
-		fin >> line;  users[i].o8 = stoi(line) - 1;
-		fin >> line;  users[i].oi = stoi(line) - 1;
-		fin >> line;  users[i].os = stoi(line) - 1;
+
+		fin >> line; users[i].Login = deshifrtext(line); 
+		fin >> line; users[i].Password = deshifrtext(line); 
+		fin >> line; users[i].Name = deshifrtext(line); 
+		fin >> line; users[i].Surname = deshifrtext(line); 
+		fin >> line; users[i].type = deshifrtext(line); 
+		fin >> line;  users[i].o1 = stoi(line) - 1; 
+		fin >> line;  users[i].o2 = stoi(line) - 1; 
+		fin >> line;  users[i].o3 = stoi(line) - 1; 
+		fin >> line;  users[i].o4 = stoi(line) - 1; 
+		fin >> line;  users[i].o5 = stoi(line) - 1; 
+		fin >> line;  users[i].o6 = stoi(line) - 1; 
+		fin >> line;  users[i].o7 = stoi(line) - 1; 
+		fin >> line;  users[i].o8 = stoi(line) - 1; 
+		fin >> line;  users[i].oi = stoi(line) - 1; 
+		fin >> line;  users[i].os = stoi(line) - 1; 
+
 	}
 	while (true)
 	{
