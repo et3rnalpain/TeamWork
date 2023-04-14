@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileModule.h" />
+    <ClInclude Include="mainstructinit.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Teacher.h" />
   </ItemGroup>
