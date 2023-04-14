@@ -419,6 +419,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 
 void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
+	int arr[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
 }
 
 void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
