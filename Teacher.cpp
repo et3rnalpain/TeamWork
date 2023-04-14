@@ -44,21 +44,21 @@ void StudentListChange(user users[])
 			cout << "¬ведите логин нового студента: "; cin >> new_login;
 			cout << "¬ведите пароль нового студента: "; cin >> new_password;
 
-			users[GetUsersCount("LogsCyphered") + 1].Name = new_name;
-			users[GetUsersCount("LogsCyphered") + 1].Surname = new_surname;
-			users[GetUsersCount("LogsCyphered") + 1].Login = new_login;
-			users[GetUsersCount("LogsCyphered") + 1].Password = new_password;
-
-			users[GetUsersCount("LogsCyphered") + 1].o1 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o2 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o3 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o4 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o5 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o6 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o7 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].o8 = 0;
-			users[GetUsersCount("LogsCyphered") + 1].oi = 0;
-			users[GetUsersCount("LogsCyphered") + 1].os = 0;
+			users[GetUsersCount("LogsCyphered")].Name = new_name;
+			users[GetUsersCount("LogsCyphered")].Surname = new_surname;
+			users[GetUsersCount("LogsCyphered")].Login = new_login;
+			users[GetUsersCount("LogsCyphered")].Password = new_password;
+			users[GetUsersCount("LogsCyphered")].type = "student";
+			users[GetUsersCount("LogsCyphered")].o1 = 0;
+			users[GetUsersCount("LogsCyphered")].o2 = 0;
+			users[GetUsersCount("LogsCyphered")].o3 = 0;
+			users[GetUsersCount("LogsCyphered")].o4 = 0;
+			users[GetUsersCount("LogsCyphered")].o5 = 0;
+			users[GetUsersCount("LogsCyphered")].o6 = 0;
+			users[GetUsersCount("LogsCyphered")].o7 = 0;
+			users[GetUsersCount("LogsCyphered")].o8 = 0;
+			users[GetUsersCount("LogsCyphered")].oi = 0;
+			users[GetUsersCount("LogsCyphered")].os = 0;
 			UpdateUsersLogs(users);
 		}; break;
 

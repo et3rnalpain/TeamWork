@@ -5,15 +5,17 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include <algorithm>
 #include "FileModule.h"
 using namespace std;
 
-void SetMark(int wrong, int &mark)
+int SetMark(int wrong, int &mark)
 {
 	if (wrong < 2) mark = 5;
 	if ((wrong < 4) && (wrong >= 2)) mark = 4;
 	if ((wrong < 5) && (wrong >= 4)) mark = 3;
 	if (wrong >= 5) mark = 2;
+	return mark;
 }
 void Rand(int* arr, char* name)
 {
@@ -55,7 +57,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 1:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered1";
+			char name[20] = "1questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -70,7 +72,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 2:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered2";
+			char name[20] = "2questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -85,7 +87,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 3:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered3";
+			char name[20] = "3questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -100,7 +102,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 4:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered4";
+			char name[20] = "4questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -115,7 +117,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 5:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered5";
+			char name[20] = "5questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -130,7 +132,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 6:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered6";
+			char name[20] = "6questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -145,7 +147,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 7:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered7";
+			char name[20] = "7questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -160,7 +162,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 8:
 		{
 			int arr[10];
-			char name[20] = "questionsCyphered8";
+			char name[20] = "8questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -175,7 +177,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 0: break;
 		default: cout << endl << "Неверно введён пункт меню" << endl;
 		}
-	}while (ch1 != 0);
+	} while (ch1 != 0);
 	return;
 }
 
@@ -206,7 +208,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered1";
+			char name[20] = "1questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -215,7 +217,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				if (answer != stoi(cycles[arr[i]].answer))
 				{
 					wrongs[wrong] = arr[i];
-					wrong++;	
+					wrong++;
 				}
 			}
 			cout << endl << "Вопросы, на которые был дан неверный ответ:" << endl;
@@ -232,7 +234,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered2";
+			char name[20] = "2questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -258,7 +260,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered3";
+			char name[20] = "3questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -284,7 +286,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered4";
+			char name[20] = "4questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -310,7 +312,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered5";
+			char name[20] = "5questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -336,7 +338,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered6";
+			char name[20] = "6questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -362,7 +364,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered7";
+			char name[20] = "7questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -388,7 +390,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			char name[20] = "questionsCyphered8";
+			char name[20] = "8questionsCyphered";
 			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
@@ -419,6 +421,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 
 void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
+	int wrong = 0;
 }
 
 void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])

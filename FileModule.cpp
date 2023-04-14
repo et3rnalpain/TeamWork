@@ -20,10 +20,10 @@ struct Bukva
 
 void UpdateUsersLogs(user users[])
 {
-	string space = " ";
 	fstream f;
 	f.open("LogsCyphered.txt");
-	for (int i = 0; i < GetUsersCount("LogsCyphered")+1; i++) 
+	int count = GetUsersCount("LogsCyphered");
+	for (int i = 0; i < count+1; i++) 
 	{
 		f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " " 
 			<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
@@ -206,8 +206,8 @@ string shifrtext(string text)
 	{
 		if (text[j] == ' ')
 			result += text[j];
-		if (text[j] == '\n')
-			result += text[j];
+		//if (text[j] == '\n')
+			//result += text[j];
 		for (int i = 0; i < 34; i++)
 		{
 			if (text[j] == bukva.buk[i])
