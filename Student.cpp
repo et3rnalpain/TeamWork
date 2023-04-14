@@ -8,6 +8,29 @@
 #include "FileModule.h"
 using namespace std;
 
+void SetMark(int wrong, int &mark)
+{
+	if (wrong < 2) mark = 5;
+	if ((wrong < 4) && (wrong >= 2)) mark = 4;
+	if ((wrong < 5) && (wrong >= 4)) mark = 3;
+	if (wrong >= 5) mark = 2;
+}
+void Rand(int* arr, char* name)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		arr[i] = rand() % GetQuestionsCount(name);
+
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[j] == arr[i])
+			{
+				--i;
+				break;
+			}
+		}
+	}
+}
 void TrainingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
 	int ch1, answer;
@@ -32,19 +55,9 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 1:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered1");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered1";
+			Rand(arr, name);
+			for (int i = 0; i < 10; i++) cout << arr[i] << " ";
 			for (int i = 0; i < 10; i++)
 			{
 				cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
@@ -58,19 +71,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 2:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered2");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered2";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << mass[arr[i]].quest << endl << mass[arr[i]].var1 << endl << mass[arr[i]].var2 << endl << mass[arr[i]].var3 << endl << mass[arr[i]].var4 << endl;
@@ -84,19 +86,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 3:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered3");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered3";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << stroki[arr[i]].quest << endl << stroki[arr[i]].var1 << endl << stroki[arr[i]].var2 << endl << stroki[arr[i]].var3 << endl << stroki[arr[i]].var4 << endl;
@@ -110,19 +101,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 4:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered4");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered4";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << recurse[arr[i]].quest << endl << recurse[arr[i]].var1 << endl << recurse[arr[i]].var2 << endl << recurse[arr[i]].var3 << endl << recurse[arr[i]].var4 << endl;
@@ -136,19 +116,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 5:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered5");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered5";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << structs[arr[i]].quest << endl << structs[arr[i]].var1 << endl << structs[arr[i]].var2 << endl << structs[arr[i]].var3 << endl << structs[arr[i]].var4 << endl;
@@ -162,19 +131,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 6:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered6");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered6";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << files[arr[i]].quest << endl << files[arr[i]].var1 << endl << files[arr[i]].var2 << endl << files[arr[i]].var3 << endl << files[arr[i]].var4 << endl;
@@ -188,19 +146,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 7:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered7");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered7";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << adress[arr[i]].quest << endl << adress[arr[i]].var1 << endl << adress[arr[i]].var2 << endl << adress[arr[i]].var3 << endl << adress[arr[i]].var4 << endl;
@@ -214,19 +161,8 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 		case 8:
 		{
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered8");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered8";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << dynamic[arr[i]].quest << endl << dynamic[arr[i]].var1 << endl << dynamic[arr[i]].var2 << endl << dynamic[arr[i]].var3 << endl << dynamic[arr[i]].var4 << endl;
@@ -271,26 +207,15 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered1");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered1";
+			Rand(arr, name);
+			for (int i = 0; i < 10; i++) cout << arr[i] << " ";
 			for (int i = 0; i < 10; i++)
 			{
 				cout << cycles[arr[i]].quest << endl << cycles[arr[i]].var1 << endl << cycles[arr[i]].var2 << endl << cycles[arr[i]].var3 << endl << cycles[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(cycles[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;	
 				}
@@ -302,36 +227,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << cycles[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 2:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered2");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered2";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << mass[arr[i]].quest << endl << mass[arr[i]].var1 << endl << mass[arr[i]].var2 << endl << mass[arr[i]].var3 << endl << mass[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(mass[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -343,36 +253,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << mass[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 3:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered3");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered3";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << stroki[arr[i]].quest << endl << stroki[arr[i]].var1 << endl << stroki[arr[i]].var2 << endl << stroki[arr[i]].var3 << endl << stroki[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(stroki[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -384,36 +279,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << stroki[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 4:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered4");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered4";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << recurse[arr[i]].quest << endl << recurse[arr[i]].var1 << endl << recurse[arr[i]].var2 << endl << recurse[arr[i]].var3 << endl << recurse[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(recurse[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -425,36 +305,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << recurse[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 5:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered5");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered5";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << structs[arr[i]].quest << endl << structs[arr[i]].var1 << endl << structs[arr[i]].var2 << endl << structs[arr[i]].var3 << endl << structs[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(structs[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -466,36 +331,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << structs[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 6:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered6");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered6";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << files[arr[i]].quest << endl << files[arr[i]].var1 << endl << files[arr[i]].var2 << endl << files[arr[i]].var3 << endl << files[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(files[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -507,36 +357,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << files[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 7:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered7");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered7";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << adress[arr[i]].quest << endl << adress[arr[i]].var1 << endl << adress[arr[i]].var2 << endl << adress[arr[i]].var3 << endl << adress[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(adress[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -548,36 +383,21 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << adress[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 8:
 		{
 			wrong = 0;
 			int arr[10];
-			for (int i = 0; i < 10; i++)
-			{
-				arr[i] = rand() % GetQuestionsCount("questionsCyphered8");
-
-				for (int j = 0; j < i; j++)
-				{
-					if (arr[j] == arr[i])
-					{
-						--i;
-						break;
-					}
-				}
-			}
+			char name[20] = "questionsCyphered8";
+			Rand(arr, name);
 			for (int i = 0; i < 10; i++)
 			{
 				cout << dynamic[arr[i]].quest << endl << dynamic[arr[i]].var1 << endl << dynamic[arr[i]].var2 << endl << dynamic[arr[i]].var3 << endl << dynamic[arr[i]].var4 << endl;
 				cin >> answer;
 				if (answer != stoi(dynamic[arr[i]].answer))
 				{
-					cout << "Неверно!" << endl;
 					wrongs[wrong] = arr[i];
 					wrong++;
 				}
@@ -589,10 +409,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << dynamic[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			if (wrong < 2) mark = 5;
-			if ((wrong < 4) && (wrong >= 2)) mark = 4;
-			if ((wrong < 5) && (wrong >= 4)) mark = 3;
-			if (wrong >= 5) mark = 2;
+			SetMark(wrong, mark);
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 0: break;
