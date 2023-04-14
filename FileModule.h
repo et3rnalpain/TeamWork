@@ -15,6 +15,7 @@ struct question {
 }; // Вопрос
 int GetQuestionsCount(string filename);
 int GetUsersCount(string filename);
+void UpdateUsersLogs(user users[]);
 void shifrtextfile(string filename);
 string shifrtext(string text);
 void deshifrtextfile(string filename);

@@ -57,6 +57,7 @@ void StudentListChange(user users[])
 			users[GetUsersCount("LogsCyphered") + 1].o8 = 0;
 			users[GetUsersCount("LogsCyphered") + 1].oi = 0;
 			users[GetUsersCount("LogsCyphered") + 1].os = 0;
+			UpdateUsersLogs(users);
 		}
 
 		case 2: {
@@ -107,7 +108,7 @@ void StudentListChange(user users[])
 		case 3: {
 			cout << "Список студентов: " << endl << endl;
 
-			for (int i; i < GetUsersCount("LogsCyphered"); i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 			{
 
 			}
