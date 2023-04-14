@@ -9,12 +9,13 @@
 #include "FileModule.h"
 using namespace std;
 
-void SetMark(int wrong, int &mark)
+int SetMark(int wrong, int &mark)
 {
 	if (wrong < 2) mark = 5;
 	if ((wrong < 4) && (wrong >= 2)) mark = 4;
 	if ((wrong < 5) && (wrong >= 4)) mark = 3;
 	if (wrong >= 5) mark = 2;
+	return mark;
 }
 void Rand(int* arr, char* name)
 {
