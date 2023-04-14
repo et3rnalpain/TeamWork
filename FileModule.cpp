@@ -18,6 +18,16 @@ struct Bukva
 	char bukAb[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 };
 
+int GetQuestionsCount(string filename)
+{
+	int x = 0;
+	string v = "";
+	fstream fin;
+	fin.open(filename + ".txt");
+	while (fin.eof()) { getline(fin, v); x++;}
+	return x / 6;
+}
+
 int Autorization(user users[])
 {
 	fstream fin;
