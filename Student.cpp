@@ -205,7 +205,7 @@ void TrainingMode(question cycles[], question mass[], question stroki[], questio
 	return;
 }
 
-void TestingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
+void TestingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[], user users[], int userid)
 {
 	int ch1, answer;
 	int wrong;
@@ -251,7 +251,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << cycles[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o1 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 2:
@@ -277,7 +277,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << mass[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o2 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 3:
@@ -303,7 +303,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << stroki[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o3 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 4:
@@ -329,7 +329,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << recurse[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o4 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 5:
@@ -355,7 +355,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << structs[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o5 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 6:
@@ -381,7 +381,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << files[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o6 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 7:
@@ -407,7 +407,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << adress[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o7 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 8:
@@ -433,7 +433,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 				cout << "Верный ответ: " << dynamic[wrongs[i]].answer << endl;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMark(wrong, mark);
+			users[userid].o8 = to_string(SetMark(wrong, mark));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 0: break;
@@ -443,7 +443,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 	return;
 }
 
-void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
+void ExaminationMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[], user users[], int userid)
 {
 	int ch;
 	int wrong = 0;
@@ -483,7 +483,7 @@ void ExaminationMode(question cycles[], question mass[], question stroki[], ques
 				cin >> answer; if (answer != stoi(dynamic[arr8[i]].answer)) wrong++;
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
-			SetMarkItog(wrong, mark);
+			users[userid].oi = to_string(SetMark(wrong, mark));
 			cout << endl << "Ваша оценка: " << mark << endl;
 		}break;
 		case 0: break;
@@ -493,7 +493,7 @@ void ExaminationMode(question cycles[], question mass[], question stroki[], ques
 	return;
 }
 
-void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
+void StudentMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[], user users[], int userid)
 {
 	int ch;
 	cout << "Меню" << endl;
@@ -504,7 +504,7 @@ void StudentMenu(question cycles[], question mass[], question stroki[], question
 	switch (ch)
 	{
 	case 1: TrainingMode(cycles, mass, stroki, recurse, structs,files,adress,dynamic); break;
-	case 2: TestingMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
+	case 2: TestingMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic, users, userid); break;
 	case 3: ExaminationMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
 	default: cout << "Неверный пункт меню";
 	}

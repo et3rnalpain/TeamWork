@@ -94,7 +94,7 @@ void StudentListChange(user users[])
 			}
 			UpdateUsersLogs(users, 1);
 		}; break;
-//bcd bcd hohol hohol ufbdifs 1 1 1 1 1 1 1 1 1 1
+
 		case 3: 
 		{
 			cout << "Список студентов: " << endl << endl;

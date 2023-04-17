@@ -72,7 +72,7 @@ int Autorization(user users[])
 		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Surname = deshifrtext(line);
 		fin >> line; if (line != " " && line != to_string(NULL)) users[i].type = deshifrtext(line);
 		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o1 = deshifrtext(line);
-		fin >> line;  if (line != " " && line != to_string(NULL)) users[i].o2 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL)) users[i].o2 = deshifrtext(line);
 		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o3 = deshifrtext(line);
 		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o4 = deshifrtext(line);
 		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o5 = deshifrtext(line);
@@ -93,8 +93,8 @@ int Autorization(user users[])
 		{
 			if (log == users[i].Login && pas == users[i].Password)
 			{
-				if (users[i].type == "teacher") return 1;
-				if (users[i].type == "student") return 0;
+				if (users[i].type == "teacher") return 0;
+				if (users[i].type == "student") return i;
 			}
 		}
 	}

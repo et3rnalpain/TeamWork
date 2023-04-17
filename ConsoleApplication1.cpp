@@ -31,13 +31,13 @@ int main()
 	DownloadingQuestions(questsAdress, "7questionsCyphered.txt");
 	DownloadingQuestions(questsDynamicMemory, "8questionsCyphered.txt");
 	userid = Autorization(users);
-	if (userid == 1)
+	if (userid == 0)
 	{
 		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users);
 	}
 	else 
 	{
-		StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
+		StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users,userid);
 	}
 	UpdateUsersLogs(users, 0);
 	system("pause");
