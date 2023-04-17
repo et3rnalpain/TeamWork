@@ -44,22 +44,23 @@ void StudentListChange(user users[])
 			cout << "Введите логин нового студента: "; cin >> new_login;
 			cout << "Введите пароль нового студента: "; cin >> new_password;
 
-			users[GetUsersCount("LogsCyphered")].Name = new_name;
-			users[GetUsersCount("LogsCyphered")].Surname = new_surname;
-			users[GetUsersCount("LogsCyphered")].Login = new_login;
-			users[GetUsersCount("LogsCyphered")].Password = new_password;
-			users[GetUsersCount("LogsCyphered")].type = "student";
-			users[GetUsersCount("LogsCyphered")].o1 = 0;
-			users[GetUsersCount("LogsCyphered")].o2 = 0;
-			users[GetUsersCount("LogsCyphered")].o3 = 0;
-			users[GetUsersCount("LogsCyphered")].o4 = 0;
-			users[GetUsersCount("LogsCyphered")].o5 = 0;
-			users[GetUsersCount("LogsCyphered")].o6 = 0;
-			users[GetUsersCount("LogsCyphered")].o7 = 0;
-			users[GetUsersCount("LogsCyphered")].o8 = 0;
-			users[GetUsersCount("LogsCyphered")].oi = 0;
-			users[GetUsersCount("LogsCyphered")].os = 0;
+			users[GetUsersCount("LogsCyphered")-1].Name = new_name;
+			users[GetUsersCount("LogsCyphered")-1].Surname = new_surname;
+			users[GetUsersCount("LogsCyphered")-1].Login = new_login;
+			users[GetUsersCount("LogsCyphered")-1].Password = new_password;
+			users[GetUsersCount("LogsCyphered")-1].type = "student";
+			users[GetUsersCount("LogsCyphered")-1].o1 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o2 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o3 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o4 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o5 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o6 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o7 = 0;
+			users[GetUsersCount("LogsCyphered")-1].o8 = 0;
+			users[GetUsersCount("LogsCyphered")-1].oi = 0;
+			users[GetUsersCount("LogsCyphered")-1].os = 0;
 			UpdateUsersLogs(users);
+			ch = 0;
 		}; break;
 
 		case 2: {
@@ -71,41 +72,43 @@ void StudentListChange(user users[])
 			{
 				if (users[i].Surname == delete_surname && users[i].Name == delete_name)
 				{
-					users[i].Name = users[GetUsersCount("LogsCyphered")].Name;
-					users[i].Surname = users[GetUsersCount("LogsCyphered")].Surname;
-					users[i].Login = users[GetUsersCount("LogsCyphered")].Login;
-					users[i].Password = users[GetUsersCount("LogsCyphered")].Password;
+					users[i].Name = users[GetUsersCount("LogsCyphered")-1].Name;
+					users[i].Surname = users[GetUsersCount("LogsCyphered")-1].Surname;
+					users[i].Login = users[GetUsersCount("LogsCyphered")-1].Login;
+					users[i].Password = users[GetUsersCount("LogsCyphered")-1].Password;
 
-					users[GetUsersCount("LogsCyphered")].Name = " ";
-					users[GetUsersCount("LogsCyphered")].Surname = " ";
-					users[GetUsersCount("LogsCyphered")].Login = " ";
-					users[GetUsersCount("LogsCyphered")].Password = " ";
+					users[GetUsersCount("LogsCyphered")-1].Name = " ";
+					users[GetUsersCount("LogsCyphered")-1].Surname = " ";
+					users[GetUsersCount("LogsCyphered")-1].Login = " ";
+					users[GetUsersCount("LogsCyphered")-1].Password = " ";
 
-					users[i].o1 = users[GetUsersCount("LogsCyphered")].o1;
-					users[i].o2 = users[GetUsersCount("LogsCyphered")].o2;
-					users[i].o3 = users[GetUsersCount("LogsCyphered")].o3;
-					users[i].o4 = users[GetUsersCount("LogsCyphered")].o4;
-					users[i].o5 = users[GetUsersCount("LogsCyphered")].o5;
-					users[i].o6 = users[GetUsersCount("LogsCyphered")].o6;
-					users[i].o7 = users[GetUsersCount("LogsCyphered")].o7;
-					users[i].o8 = users[GetUsersCount("LogsCyphered")].o8;
-					users[i].oi = users[GetUsersCount("LogsCyphered")].oi;
-					users[i].os = users[GetUsersCount("LogsCyphered")].os;
+					users[i].o1 = users[GetUsersCount("LogsCyphered")-1].o1;
+					users[i].o2 = users[GetUsersCount("LogsCyphered")-1].o2;
+					users[i].o3 = users[GetUsersCount("LogsCyphered")-1].o3;
+					users[i].o4 = users[GetUsersCount("LogsCyphered")-1].o4;
+					users[i].o5 = users[GetUsersCount("LogsCyphered")-1].o5;
+					users[i].o6 = users[GetUsersCount("LogsCyphered")-1].o6;
+					users[i].o7 = users[GetUsersCount("LogsCyphered")-1].o7;
+					users[i].o8 = users[GetUsersCount("LogsCyphered")-1].o8;
+					users[i].oi = users[GetUsersCount("LogsCyphered")-1].oi;
+					users[i].os = users[GetUsersCount("LogsCyphered")-1].os;
 
-					users[GetUsersCount("LogsCyphered")].o1 = 0;
-					users[GetUsersCount("LogsCyphered")].o2 = 0;
-					users[GetUsersCount("LogsCyphered")].o3 = 0;
-					users[GetUsersCount("LogsCyphered")].o4 = 0;
-					users[GetUsersCount("LogsCyphered")].o5 = 0;
-					users[GetUsersCount("LogsCyphered")].o6 = 0;
-					users[GetUsersCount("LogsCyphered")].o7 = 0;
-					users[GetUsersCount("LogsCyphered")].o8 = 0;
-					users[GetUsersCount("LogsCyphered")].oi = 0;
-					users[GetUsersCount("LogsCyphered")].os = 0;
+					users[GetUsersCount("LogsCyphered")-1].o1 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o2 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o3 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o4 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o5 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o6 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o7 = 0;
+					users[GetUsersCount("LogsCyphered")-1].o8 = 0;
+					users[GetUsersCount("LogsCyphered")-1].oi = 0;
+					users[GetUsersCount("LogsCyphered")-1].os = 0;
 				}
 			}
+			UpdateUsersLogs(users);
+			ch = 0;
 		}; break;
-
+//bcd bcd hohol hohol ufbdifs 1 1 1 1 1 1 1 1 1 1
 		case 3: 
 		{
 			cout << "Список студентов: " << endl << endl;
@@ -124,6 +127,7 @@ void StudentListChange(user users[])
 
 				cout << endl;
 			}
+			ch = 0;
 		}; break;
 		
 
