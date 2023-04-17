@@ -142,7 +142,7 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 	case 1:
 	{
 		cout << "Список вопросов: " << endl << endl;
-		for (int i = 0; i < GetQuestionsCount("pasha"); i++)
+		for (int i = 0; i < GetQuestionsCount("1questionsCyphered"); i++)
 		{
 			cout << i + 1 << ". " << cycles[i].quest << endl;
 		}
@@ -153,42 +153,303 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cin >> delete_num;
 
 			delete_count++;
-			cycles[delete_num - 1].quest = cycles[GetQuestionsCount("pasha") - delete_count].quest;
-			cycles[delete_num - 1].var1 = cycles[GetQuestionsCount("pasha") - delete_count].var1;
-			cycles[delete_num - 1].var2 = cycles[GetQuestionsCount("pasha") - delete_count].var1;
-			cycles[delete_num - 1].var3 = cycles[GetQuestionsCount("pasha") - delete_count].var3;
-			cycles[delete_num - 1].var4 = cycles[GetQuestionsCount("pasha") - delete_count].var4;
-			cycles[delete_num - 1].answer = cycles[GetQuestionsCount("pasha") - delete_count].answer;
+			cycles[delete_num - 1].quest = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest;
+			cycles[delete_num - 1].var1 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
+			cycles[delete_num - 1].var2 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
+			cycles[delete_num - 1].var3 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3;
+			cycles[delete_num - 1].var4 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4;
+			cycles[delete_num - 1].answer = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer;
 
-			cycles[GetQuestionsCount("pasha") - delete_count].quest = " ";
-			cycles[GetQuestionsCount("pasha") - delete_count].var1 = " ";
-			cycles[GetQuestionsCount("pasha") - delete_count].var2 = " ";
-			cycles[GetQuestionsCount("pasha") - delete_count].var3 = " ";
-			cycles[GetQuestionsCount("pasha") - delete_count].var4 = " ";
-			cycles[GetQuestionsCount("pasha") - delete_count].answer = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var2 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer = " ";
 			
 			system("cls");
 
 			cout << "Редактированный список вопросов: " << endl << endl;
 
-			for (int i = 0; i < GetQuestionsCount("pasha") - delete_count; i++)
+			for (int i = 0; i < GetQuestionsCount("1questionsCyphered") - delete_count; i++)
 			{
 				cout << i + 1 << ". " << cycles[i].quest << endl;
 			}
 		} while (delete_num != 0);
-
-		
-
 	}; break;
 
 	case 2:
 	{
+		cout << "Список вопросов: " << endl << endl;
 		for (int i = 0; i < GetQuestionsCount("2questionsCyphered"); i++)
 		{
 			cout << i + 1 << ". " << mass[i].quest << endl;
 		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			mass[delete_num - 1].quest = mass[GetQuestionsCount("2questionsCyphered") - delete_count].quest;
+			mass[delete_num - 1].var1 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var1;
+			mass[delete_num - 1].var2 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var1;
+			mass[delete_num - 1].var3 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var3;
+			mass[delete_num - 1].var4 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var4;
+			mass[delete_num - 1].answer = mass[GetQuestionsCount("2questionsCyphered") - delete_count].answer;
+
+			mass[GetQuestionsCount("2questionsCyphered") - delete_count].quest = " ";
+			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var1 = " ";
+			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var2 = " ";
+			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var3 = " ";
+			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var4 = " ";
+			mass[GetQuestionsCount("2questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("2questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << mass[i].quest << endl;
+			}
+		} while (delete_num != 0);
 	}; break;
 
+	case 3:
+	{
+		cout << "Список вопросов: " << endl << endl;
+		for (int i = 0; i < GetQuestionsCount("3questionsCyphered"); i++)
+		{
+			cout << i + 1 << ". " << stroki[i].quest << endl;
+		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			stroki[delete_num - 1].quest = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].quest;
+			stroki[delete_num - 1].var1 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var1;
+			stroki[delete_num - 1].var2 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var1;
+			stroki[delete_num - 1].var3 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var3;
+			stroki[delete_num - 1].var4 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var4;
+			stroki[delete_num - 1].answer = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].answer;
+
+			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].quest = " ";
+			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var1 = " ";
+			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var2 = " ";
+			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var3 = " ";
+			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var4 = " ";
+			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("3questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << stroki[i].quest << endl;
+			}
+		} while (delete_num != 0);
+	}; break;
+
+	case 4:
+	{
+		cout << "Список вопросов: " << endl << endl;
+		for (int i = 0; i < GetQuestionsCount("4questionsCyphered"); i++)
+		{
+			cout << i + 1 << ". " << recurse[i].quest << endl;
+		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			recurse[delete_num - 1].quest = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].quest;
+			recurse[delete_num - 1].var1 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var1;
+			recurse[delete_num - 1].var2 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var1;
+			recurse[delete_num - 1].var3 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var3;
+			recurse[delete_num - 1].var4 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var4;
+			recurse[delete_num - 1].answer = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].answer;
+
+			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].quest = " ";
+			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var1 = " ";
+			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var2 = " ";
+			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var3 = " ";
+			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var4 = " ";
+			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("4questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << recurse[i].quest << endl;
+			}
+		} while (delete_num != 0);
+	}; break;
+
+	case 5:
+	{
+		cout << "Список вопросов: " << endl << endl;
+		for (int i = 0; i < GetQuestionsCount("5questionsCyphered"); i++)
+		{
+			cout << i + 1 << ". " << structs[i].quest << endl;
+		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			structs[delete_num - 1].quest = structs[GetQuestionsCount("5questionsCyphered") - delete_count].quest;
+			structs[delete_num - 1].var1 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var1;
+			structs[delete_num - 1].var2 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var1;
+			structs[delete_num - 1].var3 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var3;
+			structs[delete_num - 1].var4 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var4;
+			structs[delete_num - 1].answer = structs[GetQuestionsCount("5questionsCyphered") - delete_count].answer;
+
+			structs[GetQuestionsCount("5questionsCyphered") - delete_count].quest = " ";
+			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var1 = " ";
+			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var2 = " ";
+			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var3 = " ";
+			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var4 = " ";
+			structs[GetQuestionsCount("5questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("5questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << structs[i].quest << endl;
+			}
+		} while (delete_num != 0);
+	}; break;
+
+	case 6:
+	{
+		cout << "Список вопросов: " << endl << endl;
+		for (int i = 0; i < GetQuestionsCount("6questionsCyphered"); i++)
+		{
+			cout << i + 1 << ". " << files[i].quest << endl;
+		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			files[delete_num - 1].quest = files[GetQuestionsCount("6questionsCyphered") - delete_count].quest;
+			files[delete_num - 1].var1 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var1;
+			files[delete_num - 1].var2 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var1;
+			files[delete_num - 1].var3 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var3;
+			files[delete_num - 1].var4 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var4;
+			files[delete_num - 1].answer = files[GetQuestionsCount("6questionsCyphered") - delete_count].answer;
+
+			files[GetQuestionsCount("6questionsCyphered") - delete_count].quest = " ";
+			files[GetQuestionsCount("6questionsCyphered") - delete_count].var1 = " ";
+			files[GetQuestionsCount("6questionsCyphered") - delete_count].var2 = " ";
+			files[GetQuestionsCount("6questionsCyphered") - delete_count].var3 = " ";
+			files[GetQuestionsCount("6questionsCyphered") - delete_count].var4 = " ";
+			files[GetQuestionsCount("6questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("6questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << files[i].quest << endl;
+			}
+		} while (delete_num != 0);
+	}; break;
+
+	case 7:
+	{
+		cout << "Список вопросов: " << endl << endl;
+		for (int i = 0; i < GetQuestionsCount("7questionsCyphered"); i++)
+		{
+			cout << i + 1 << ". " << adress[i].quest << endl;
+		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			adress[delete_num - 1].quest = adress[GetQuestionsCount("7questionsCyphered") - delete_count].quest;
+			adress[delete_num - 1].var1 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var1;
+			adress[delete_num - 1].var2 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var1;
+			adress[delete_num - 1].var3 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var3;
+			adress[delete_num - 1].var4 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var4;
+			adress[delete_num - 1].answer = adress[GetQuestionsCount("7questionsCyphered") - delete_count].answer;
+
+			adress[GetQuestionsCount("7questionsCyphered") - delete_count].quest = " ";
+			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var1 = " ";
+			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var2 = " ";
+			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var3 = " ";
+			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var4 = " ";
+			adress[GetQuestionsCount("7questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("7questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << adress[i].quest << endl;
+			}
+		} while (delete_num != 0);
+	}; break;
+
+	case 8:
+	{
+		cout << "Список вопросов: " << endl << endl;
+		for (int i = 0; i < GetQuestionsCount("8questionsCyphered"); i++)
+		{
+			cout << i + 1 << ". " << dynamic[i].quest << endl;
+		}
+
+		do {
+			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
+			cout << endl << "Нажмите 0, чтобы выйти." << endl;
+			cin >> delete_num;
+
+			delete_count++;
+			dynamic[delete_num - 1].quest = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].quest;
+			dynamic[delete_num - 1].var1 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var1;
+			dynamic[delete_num - 1].var2 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var1;
+			dynamic[delete_num - 1].var3 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var3;
+			dynamic[delete_num - 1].var4 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var4;
+			dynamic[delete_num - 1].answer = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].answer;
+
+			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].quest = " ";
+			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var1 = " ";
+			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var2 = " ";
+			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var3 = " ";
+			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var4 = " ";
+			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].answer = " ";
+
+			system("cls");
+
+			cout << "Редактированный список вопросов: " << endl << endl;
+
+			for (int i = 0; i < GetQuestionsCount("8questionsCyphered") - delete_count; i++)
+			{
+				cout << i + 1 << ". " << dynamic[i].quest << endl;
+			}
+		} while (delete_num != 0);
+	}; break;
 	}
 }
 
@@ -236,7 +497,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].var3 = var3;
 		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].var4 = var4;
 		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].answer = answer;
-	}
+	}; break;
 
 	case 3:
 	{
@@ -256,7 +517,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].var3 = var3;
 		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].var4 = var4;
 		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].answer = answer;
-	}
+	}; break;
 
 	case 4:
 	{
@@ -276,7 +537,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].var3 = var3;
 		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].var4 = var4;
 		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].answer = answer;
-	}
+	}; break;
 
 	case 5:
 	{
@@ -296,7 +557,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].var3 = var3;
 		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].var4 = var4;
 		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].answer = answer;
-	}
+	}; break;
 
 	case 6:
 	{
@@ -316,7 +577,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		files[GetQuestionsCount("6questionsCyphered.txt") + 1].var3 = var3;
 		files[GetQuestionsCount("6questionsCyphered.txt") + 1].var4 = var4;
 		files[GetQuestionsCount("6questionsCyphered.txt") + 1].answer = answer;
-	}
+	}; break;
 
 	case 7:
 	{
@@ -336,7 +597,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].var3 = var3;
 		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].var4 = var4;
 		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].answer = answer;
-	}
+	}; break;
 
 	case 8:
 	{
@@ -356,14 +617,9 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].var3 = var3;
 		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].var4 = var4;
 		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].answer = answer;
-	}
-	}
+	}; break;
 
-	return;
-}
-
-void QuestionChange(int theme_num, question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
-{
+	}
 
 	return;
 }
@@ -411,21 +667,19 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 		cout << "Выберите действие: " << endl;
 		cout << "1. Удалить вопрос" << endl;
 		cout << "2. Добавить вопрос" << endl;
-		cout << "3. Изменить вопрос" << endl;
 		cout << "Нажмите 0, чтобы выйти" << endl;
 		
 
 		do {
 			cin >> ch2;
 
-			while (ch2 < 0 || ch2 > 3)
+			while (ch2 < 0 || ch2 > 2)
 			{
 				system("cls");
 				cout << "Неверный ввод!" << endl;
 				cout << "Выберите действие: " << endl;
 				cout << "1. Удалить вопрос" << endl;
 				cout << "2. Добавить вопрос" << endl;
-				cout << "3. Изменить вопрос" << endl;
 				cout << "Нажмите 0, чтобы выйти" << endl;
 				cin >> ch2;
 			}
@@ -433,7 +687,6 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 			{
 			case 1: {system("cls"); QuestionDelete(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); break; }
 			case 2: {system("cls"); QuestionAdd(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); break; }
-			case 3: {system("cls"); QuestionChange(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); break; }
 			case 0: return;
 			}
 
