@@ -13,29 +13,15 @@ using namespace std;
 
 void StudentListChange(user users[])
 {
-	int ch;
-	cout << "Работа со списком студентов: " << endl;
-	cout << "1. Добавить студента " << endl;
-	cout << "2. Удалить студента " << endl;
-	cout << "3. Вывести список студентов. " << endl;
-	cout << "Нажмите 0, чтобы выйти" << endl;
-
+	int ch2;
 	do {
-		cin >> ch;
-
-		while (ch < 0 || ch > 3)
-		{
-			system("cls");
-			cout << "Неверный ввод." << endl;
-			cout << "Работа со списком студентов: " << endl;
-			cout << "1. Добавить студента " << endl;
-			cout << "2. Удалить студента " << endl;
-			cout << "3. Вывести список студентов. " << endl;
-			cout << "Нажмите 0, чтобы выйти" << endl;
-			cin >> ch;
-		}
-
-		switch (ch)
+		cout << "Работа со списком студентов: " << endl;
+		cout << "1. Добавить студента " << endl;
+		cout << "2. Удалить студента " << endl;
+		cout << "3. Вывести список студентов. " << endl;
+		cout << "Нажмите 0, чтобы выйти" << endl;
+		cin >> ch2;
+		switch (ch2)
 		{
 		case 1: {
 			string new_name, new_surname, new_login, new_password;
@@ -49,18 +35,17 @@ void StudentListChange(user users[])
 			users[GetUsersCount("LogsCyphered")-1].Login = new_login;
 			users[GetUsersCount("LogsCyphered")-1].Password = new_password;
 			users[GetUsersCount("LogsCyphered")-1].type = "student";
-			users[GetUsersCount("LogsCyphered")-1].o1 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o2 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o3 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o4 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o5 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o6 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o7 = 0;
-			users[GetUsersCount("LogsCyphered")-1].o8 = 0;
-			users[GetUsersCount("LogsCyphered")-1].oi = 0;
-			users[GetUsersCount("LogsCyphered")-1].os = 0;
-			UpdateUsersLogs(users);
-			ch = 0;
+			users[GetUsersCount("LogsCyphered")-1].o1 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o2 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o3 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o4 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o5 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o6 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o7 = "0";
+			users[GetUsersCount("LogsCyphered")-1].o8 = "0";
+			users[GetUsersCount("LogsCyphered")-1].oi = "0";
+			users[GetUsersCount("LogsCyphered")-1].os = "0";
+			UpdateUsersLogs(users, 0);
 		}; break;
 
 		case 2: {
@@ -68,54 +53,53 @@ void StudentListChange(user users[])
 			cout << "Введите фамилию студента, которого необходимо удалить: "; cin >> delete_surname;
 			cout << "Введите имя нового студента, которого необходимо удалить: "; cin >> delete_name;
 
-			for (int i = 0; i < GetUsersCount("LogsCyphered")-1; i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 			{
 				if (users[i].Surname == delete_surname && users[i].Name == delete_name)
 				{
-					users[i].Name = users[GetUsersCount("LogsCyphered")-1].Name;
-					users[i].Surname = users[GetUsersCount("LogsCyphered")-1].Surname;
-					users[i].Login = users[GetUsersCount("LogsCyphered")-1].Login;
-					users[i].Password = users[GetUsersCount("LogsCyphered")-1].Password;
-					users[i].type = users[GetUsersCount("LogsCyphered") - 1].type;
-
-					users[GetUsersCount("LogsCyphered")-1].Name = " ";
-					users[GetUsersCount("LogsCyphered")-1].Surname = " ";
-					users[GetUsersCount("LogsCyphered")-1].Login = " ";
-					users[GetUsersCount("LogsCyphered")-1].Password = " ";
-					users[GetUsersCount("LogsCyphered") - 1].type = " ";
-
-					users[i].o1 = users[GetUsersCount("LogsCyphered")-1].o1;
-					users[i].o2 = users[GetUsersCount("LogsCyphered")-1].o2;
-					users[i].o3 = users[GetUsersCount("LogsCyphered")-1].o3;
-					users[i].o4 = users[GetUsersCount("LogsCyphered")-1].o4;
-					users[i].o5 = users[GetUsersCount("LogsCyphered")-1].o5;
-					users[i].o6 = users[GetUsersCount("LogsCyphered")-1].o6;
-					users[i].o7 = users[GetUsersCount("LogsCyphered")-1].o7;
-					users[i].o8 = users[GetUsersCount("LogsCyphered")-1].o8;
-					users[i].oi = users[GetUsersCount("LogsCyphered")-1].oi;
-					users[i].os = users[GetUsersCount("LogsCyphered")-1].os;
-
-					users[GetUsersCount("LogsCyphered")-1].o1 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o2 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o3 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o4 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o5 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o6 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o7 = 0;
-					users[GetUsersCount("LogsCyphered")-1].o8 = 0;
-					users[GetUsersCount("LogsCyphered")-1].oi = 0;
-					users[GetUsersCount("LogsCyphered")-1].os = 0;
+					for (int z = i; z < GetUsersCount("LogsCyphered")-1; z++)
+					{
+						users[z].Name = users[z+1].Name;
+						users[z].Surname = users[z+1].Surname;
+						users[z].Login = users[z+1].Login;
+						users[z].Password = users[z+1].Password;
+						users[z].type = users[z+1].type;
+						users[z].o1 = users[z+1].o1;
+						users[z].o2 = users[z+1].o2;
+						users[z].o3 = users[z+1].o3;
+						users[z].o4 = users[z+1].o4;
+						users[z].o5 = users[z+1].o5;
+						users[z].o6 = users[z+1].o6;
+						users[z].o7 = users[z+1].o7;
+						users[z].o8 = users[z+1].o8;
+						users[z].oi = users[z+1].oi;
+						users[z].os = users[z+1].os;
+					}
+					users[GetUsersCount("LogsCyphered")-1].Name = "";
+					users[GetUsersCount("LogsCyphered")-1].Surname = "";
+					users[GetUsersCount("LogsCyphered")-1].Login = "";
+					users[GetUsersCount("LogsCyphered")-1].Password = "";
+					users[GetUsersCount("LogsCyphered")-1].type = "";
+					users[GetUsersCount("LogsCyphered")-1].o1 = "";
+					users[GetUsersCount("LogsCyphered")-1].o2 = "";
+					users[GetUsersCount("LogsCyphered")-1].o3 = "";
+					users[GetUsersCount("LogsCyphered")-1].o4 = "";
+					users[GetUsersCount("LogsCyphered")-1].o5 = "";
+					users[GetUsersCount("LogsCyphered")-1].o6 = "";
+					users[GetUsersCount("LogsCyphered")-1].o7 = "";
+					users[GetUsersCount("LogsCyphered")-1].o8 = "";
+					users[GetUsersCount("LogsCyphered")-1].oi = "";
+					users[GetUsersCount("LogsCyphered")-1].os = "";
 				}
 			}
-			UpdateUsersLogs(users);
-			ch = 0;
+			UpdateUsersLogs(users, 1);
 		}; break;
 //bcd bcd hohol hohol ufbdifs 1 1 1 1 1 1 1 1 1 1
 		case 3: 
 		{
 			cout << "Список студентов: " << endl << endl;
 
-			for (int i = 0; i < GetUsersCount("LogsCyphered")-1; i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 			{
 				if (users[i].type == "teacher")
 					continue;
@@ -129,12 +113,11 @@ void StudentListChange(user users[])
 
 				cout << endl;
 			}
-			ch = 0;
 		}; break;
-		
-
+		case 0: return;
 		}
-	} while (ch != 0);
+	} while (ch2 != 0);
+	return;
 }
 
 void QuestionDelete(int theme_num, question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
@@ -705,30 +688,20 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 void TeacherMenu(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[], user users[])
 {
 	setlocale(LC_ALL, "Rus");
-	int ch;
-
-	cout << "1. Редактирование вопросов" << endl;
-	cout << "2. Работа со списком студентов" << endl;
-	cout << "Нажмите 0, чтобы выйти" << endl;
-	cin >> ch;
-
-	while (ch < 0 || ch > 2)
-	{
+	int c;
+	do {
 		system("cls");
-		cout << "Ошибка" << endl;
+		//cout << "Ошибка" << endl;
 		cout << "1. Редактирование вопросов" << endl;
 		cout << "2. Работа со списком студентов" << endl;
 		cout << "Нажмите 0, чтобы выйти" << endl;
-		cin >> ch;
-	}
-
-	do {
-		switch (ch)
+		cin >> c;
+		switch (c)
 		{
 		case 1: QuestionWork(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
 		case 2: StudentListChange(users); break;
-		case 0: return;
+		case 0: break;
 		}
-
-	} while (ch != 0);
+	} while (c != 0);
+	return;
 }

@@ -18,19 +18,21 @@ struct Bukva
 	char bukAb[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 };
 
-void UpdateUsersLogs(user users[])
+void UpdateUsersLogs(user users[], int d)
 {
 	fstream f;
 	f.open("LogsCyphered.txt");
 	int count = GetUsersCount("LogsCyphered");
-	for (int i = 0; i < count; i++)
+	for (int z = 0; z < 100; z++) if (users[z].Login == "0" || users[z].Password == "0") {
+		users[z].Login = ""; users[z].Password = ""; users[z].Name = ""; users[z].Surname = ""; users[z].type = ""; users[z].o1 = users[z].o2 = users[z].o3 = users[z].o4 = users[z].o5 = users[z].o6 = users[z].o7 = users[z].o8 = users[z].oi = users[z].os = "";
+	}
+	for (int i = 0; i < count-d; i++)
 	{
-		if (users[i].Login != "" || users[i].Login != " " || users[i].Password != " " || users[i].Name != " " || users[i].Surname != " ")
+		if (users[i].Login != " " && users[i].Login != "  " && users[i].Login != "")
 		{
 			f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " "
-				<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
-				<< shifrtext(to_string(users[i].o6)) << " " << shifrtext(to_string(users[i].o7)) << " " << shifrtext(to_string(users[i].o8)) << " " << shifrtext(to_string(users[i].oi)) << " " << shifrtext(to_string(users[i].os)) << endl;
-
+				<< shifrtext(users[i].o1) << " " << shifrtext(users[i].o2) << " " << shifrtext(users[i].o3) << " " << shifrtext(users[i].o4) << " " << shifrtext(users[i].o5) << " "
+				<< shifrtext(users[i].o6) << " " << shifrtext(users[i].o7) << " " << shifrtext(users[i].o8) << " " << shifrtext(users[i].oi) << " " << shifrtext(users[i].os) << endl;
 		}
 	}
 }
@@ -63,22 +65,22 @@ int Autorization(user users[])
 	fin.open("LogsCyphered.txt");
 	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 	{
-
-		fin >> line; users[i].Login = deshifrtext(line); 
-		fin >> line; users[i].Password = deshifrtext(line); 
-		fin >> line; users[i].Name = deshifrtext(line); 
-		fin >> line; users[i].Surname = deshifrtext(line); 
-		fin >> line; users[i].type = deshifrtext(line); 
-		fin >> line;  users[i].o1 = stoi(line) - 1; 
-		fin >> line;  users[i].o2 = stoi(line) - 1; 
-		fin >> line;  users[i].o3 = stoi(line) - 1; 
-		fin >> line;  users[i].o4 = stoi(line) - 1; 
-		fin >> line;  users[i].o5 = stoi(line) - 1; 
-		fin >> line;  users[i].o6 = stoi(line) - 1; 
-		fin >> line;  users[i].o7 = stoi(line) - 1; 
-		fin >> line;  users[i].o8 = stoi(line) - 1; 
-		fin >> line;  users[i].oi = stoi(line) - 1; 
-		fin >> line;  users[i].os = stoi(line) - 1; 
+		
+		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Login = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Password = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Name = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Surname = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL)) users[i].type = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o1 = deshifrtext(line);
+		fin >> line;  if (line != " " && line != to_string(NULL)) users[i].o2 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o3 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o4 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o5 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o6 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o7 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o8 = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].oi = deshifrtext(line);
+		fin >> line; if (line != " " && line != to_string(NULL))  users[i].os = deshifrtext(line);
 
 	}
 	while (true)
@@ -121,6 +123,7 @@ void DownloadingQuestions(question quests[], string filename)
 	}
 
 }
+
 void shifrtextfile(string filename)
 {
 	setlocale(LC_ALL, "Russian");

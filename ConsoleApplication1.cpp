@@ -39,6 +39,6 @@ int main()
 	{
 		StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
 	}
-	
+	UpdateUsersLogs(users, 0);
 	system("pause");
 }
