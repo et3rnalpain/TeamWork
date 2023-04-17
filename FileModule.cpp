@@ -23,11 +23,15 @@ void UpdateUsersLogs(user users[])
 	fstream f;
 	f.open("LogsCyphered.txt");
 	int count = GetUsersCount("LogsCyphered");
-	for (int i = 0; i < count+1; i++) 
+	for (int i = 0; i < count; i++)
 	{
-		f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " " 
-			<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
-			<< shifrtext(to_string(users[i].o6)) << " " << shifrtext(to_string(users[i].o7)) << " " << shifrtext(to_string(users[i].o8)) << " " << shifrtext(to_string(users[i].oi)) << " " << shifrtext(to_string(users[i].os)) << endl;
+		if (users[i].Login != "" && users[i].o1 == 0 && users[i].Login != " ")
+		{
+			f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " "
+				<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
+				<< shifrtext(to_string(users[i].o6)) << " " << shifrtext(to_string(users[i].o7)) << " " << shifrtext(to_string(users[i].o8)) << " " << shifrtext(to_string(users[i].oi)) << " " << shifrtext(to_string(users[i].os)) << endl;
+
+		}
 	}
 }
 

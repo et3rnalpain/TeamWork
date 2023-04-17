@@ -10,6 +10,7 @@
 
 int main()
 {
+	int userid;
 	question questsCycle[50];
 	question questsMassive[50];
 	question questsStroki[50];
@@ -29,8 +30,8 @@ int main()
 	DownloadingQuestions(questsFiles, "6questionsCyphered.txt");
 	DownloadingQuestions(questsAdress, "7questionsCyphered.txt");
 	DownloadingQuestions(questsDynamicMemory, "8questionsCyphered.txt");
-	
-	if (Autorization(users) == 1)
+	userid = Autorization(users);
+	if (userid == 1)
 	{
 		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users);
 	}
@@ -38,5 +39,6 @@ int main()
 	{
 		StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory);
 	}
+	
 	system("pause");
 }
