@@ -68,7 +68,7 @@ void StudentListChange(user users[])
 			cout << "¬ведите фамилию студента, которого необходимо удалить: "; cin >> delete_surname;
 			cout << "¬ведите им€ нового студента, которого необходимо удалить: "; cin >> delete_name;
 
-			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered")-1; i++)
 			{
 				if (users[i].Surname == delete_surname && users[i].Name == delete_name)
 				{
@@ -76,11 +76,13 @@ void StudentListChange(user users[])
 					users[i].Surname = users[GetUsersCount("LogsCyphered")-1].Surname;
 					users[i].Login = users[GetUsersCount("LogsCyphered")-1].Login;
 					users[i].Password = users[GetUsersCount("LogsCyphered")-1].Password;
+					users[i].type = users[GetUsersCount("LogsCyphered") - 1].type;
 
 					users[GetUsersCount("LogsCyphered")-1].Name = " ";
 					users[GetUsersCount("LogsCyphered")-1].Surname = " ";
 					users[GetUsersCount("LogsCyphered")-1].Login = " ";
 					users[GetUsersCount("LogsCyphered")-1].Password = " ";
+					users[GetUsersCount("LogsCyphered") - 1].type = " ";
 
 					users[i].o1 = users[GetUsersCount("LogsCyphered")-1].o1;
 					users[i].o2 = users[GetUsersCount("LogsCyphered")-1].o2;
@@ -113,7 +115,7 @@ void StudentListChange(user users[])
 		{
 			cout << "—писок студентов: " << endl << endl;
 
-			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered")-1; i++)
 			{
 				if (users[i].type == "teacher")
 					continue;
