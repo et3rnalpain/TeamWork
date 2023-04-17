@@ -25,7 +25,7 @@ void UpdateUsersLogs(user users[])
 	int count = GetUsersCount("LogsCyphered");
 	for (int i = 0; i < count; i++)
 	{
-		if (users[i].Login != "" || users[i].Login != " ")
+		if (users[i].Login != "" || users[i].Login != " " || users[i].Password != " " || users[i].Name != " " || users[i].Surname != " ")
 		{
 			f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " "
 				<< shifrtext(to_string(users[i].o1)) << " " << shifrtext(to_string(users[i].o2)) << " " << shifrtext(to_string(users[i].o3)) << " " << shifrtext(to_string(users[i].o4)) << " " << shifrtext(to_string(users[i].o5)) << " "
