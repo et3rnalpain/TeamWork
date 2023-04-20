@@ -37,6 +37,21 @@ void UpdateUsersLogs(user users[], int d)
 	}
 }
 
+void UpdateQuestionsFile(question quests[], string filename, int d)
+{
+	fstream f;
+	f.open(filename + ".txt");
+	int count = GetQuestionsCount(filename);
+	for (int i = 0; i < count+d; i++)
+	{
+		if (quests[i].quest != " ")
+		{
+			f << shifrtext(quests[i].quest) << endl << shifrtext(quests[i].var1) << endl << shifrtext(quests[i].var2) << endl << shifrtext(quests[i].var3) << endl << shifrtext(quests[i].var4) << endl << shifrtext(quests[i].answer) << endl;
+		}
+	}
+
+}
+
 int GetQuestionsCount(string filename)
 {
 	int x = 0;

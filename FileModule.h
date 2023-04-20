@@ -18,5 +18,6 @@ void shifrtextfile(string filename);
 string shifrtext(string text);
 void deshifrtextfile(string filename);
 string deshifrtext(string text);
+void UpdateQuestionsFile(question quests[], string filename, int d);
 void DownloadingQuestions(question quests[], string filename);
 int Autorization(user users[]);

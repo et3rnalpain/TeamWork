@@ -6,11 +6,9 @@
 #include <locale.h>
 #include <iomanip>
 #include "FileModule.h"
+#include <stdio.h>
 
 using namespace std;
-
-
-
 void StudentListChange(user users[])
 {
 	int ch2;
@@ -444,172 +442,242 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 
 void QuestionAdd(int theme_num, question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
-	string quest, var1, var2, var3, var4, answer;
-
+	string quest, var1, var2, var3, var4, answer, bufer;
+	_flushall();
+	getline(cin, bufer);
 	switch (theme_num)
 	{
-	case 1:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
+		case 1:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin,quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin,var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
 
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
+			cycles[GetQuestionsCount("1questionsCyphered")].quest = quest;
+			cycles[GetQuestionsCount("1questionsCyphered")].var1 = "1) " + var1;
+			cycles[GetQuestionsCount("1questionsCyphered")].var2 = "2) " + var2;
+			cycles[GetQuestionsCount("1questionsCyphered")].var3 = "3) " + var3;
+			cycles[GetQuestionsCount("1questionsCyphered")].var4 = "4) " + var4;
+			cycles[GetQuestionsCount("1questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(cycles, "1questionsCyphered",1);
+		}; break;
 
-		cycles[GetQuestionsCount("1questionsCyphered.txt") + 1].quest = quest;
-		cycles[GetQuestionsCount("1questionsCyphered.txt") + 1].var1 = var1;
-		cycles[GetQuestionsCount("1questionsCyphered.txt") + 1].var2 = var2;
-		cycles[GetQuestionsCount("1questionsCyphered.txt") + 1].var3 = var3;
-		cycles[GetQuestionsCount("1questionsCyphered.txt") + 1].var4 = var4;
-		cycles[GetQuestionsCount("1questionsCyphered.txt") + 1].answer = answer;
-	}; break;
+		case 2:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
 
-	case 2:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
+			mass[GetQuestionsCount("2questionsCyphered")].quest = quest;
+			mass[GetQuestionsCount("2questionsCyphered")].var1 = "1) " + var1;
+			mass[GetQuestionsCount("2questionsCyphered")].var2 = "2) " + var2; 
+			mass[GetQuestionsCount("2questionsCyphered")].var3 = "3) " + var3; 
+			mass[GetQuestionsCount("2questionsCyphered")].var4 = "4) " + var4; 
+			mass[GetQuestionsCount("2questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(mass, "2questionsCyphered", 1);
+		}; break;
 
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
+		case 3:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
+			stroki[GetQuestionsCount("3questionsCyphered")].quest = quest;
+			stroki[GetQuestionsCount("3questionsCyphered")].var1 = "1) " + var1;
+			stroki[GetQuestionsCount("3questionsCyphered")].var2 = "2) " + var2;
+			stroki[GetQuestionsCount("3questionsCyphered")].var3 = "3) " + var3;
+			stroki[GetQuestionsCount("3questionsCyphered")].var4 = "4) " + var4;
+			stroki[GetQuestionsCount("3questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(stroki, "3questionsCyphered",1);
+		}; break;
 
-		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].quest = quest;
-		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].var1 = var1;
-		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].var2 = var2;
-		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].var3 = var3;
-		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].var4 = var4;
-		mass[GetQuestionsCount("2questionsCyphered.txt") + 1].answer = answer;
-	}; break;
+		case 4:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
 
-	case 3:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
+			recurse[GetQuestionsCount("4questionsCyphered")].quest = quest;
+			recurse[GetQuestionsCount("4questionsCyphered")].var1 = "1) " + var1;
+			recurse[GetQuestionsCount("4questionsCyphered")].var2 = "2) " + var2;
+			recurse[GetQuestionsCount("4questionsCyphered")].var3 = "3) " + var3;
+			recurse[GetQuestionsCount("4questionsCyphered")].var4 = "4) " + var4;
+			recurse[GetQuestionsCount("4questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(recurse, "4questionsCyphered",1);
+		}; break;
 
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
+		case 5:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
 
-		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].quest = quest;
-		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].var1 = var1;
-		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].var2 = var2;
-		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].var3 = var3;
-		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].var4 = var4;
-		stroki[GetQuestionsCount("3questionsCyphered.txt") + 1].answer = answer;
-	}; break;
+			structs[GetQuestionsCount("5questionsCyphered")].quest = quest;
+			structs[GetQuestionsCount("5questionsCyphered")].var1 = "1) " + var1;
+			structs[GetQuestionsCount("5questionsCyphered")].var2 = "2) " + var2;
+			structs[GetQuestionsCount("5questionsCyphered")].var3 = "3) " + var3;
+			structs[GetQuestionsCount("5questionsCyphered")].var4 = "4) " + var4;
+			structs[GetQuestionsCount("5questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(structs, "5questionsCyphered",1);
+		}; break;
 
-	case 4:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
+		case 6:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
 
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
+			files[GetQuestionsCount("6questionsCyphered")].quest = quest;
+			files[GetQuestionsCount("6questionsCyphered")].var1 = "1) " + var1;
+			files[GetQuestionsCount("6questionsCyphered")].var2 = "2) " + var2;
+			files[GetQuestionsCount("6questionsCyphered")].var3 = "3) " + var3;
+			files[GetQuestionsCount("6questionsCyphered")].var4 = "4) " + var4;
+			files[GetQuestionsCount("6questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(files, "6questionsCyphered",1);
+		}; break;
 
-		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].quest = quest;
-		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].var1 = var1;
-		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].var2 = var2;
-		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].var3 = var3;
-		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].var4 = var4;
-		recurse[GetQuestionsCount("4questionsCyphered.txt") + 1].answer = answer;
-	}; break;
+		case 7:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
+			adress[GetQuestionsCount("7questionsCyphered")].quest = quest;
+			adress[GetQuestionsCount("7questionsCyphered")].var1 = "1) " + var1;
+			adress[GetQuestionsCount("7questionsCyphered")].var2 = "2) " + var2;
+			adress[GetQuestionsCount("7questionsCyphered")].var3 = "3) " + var3;
+			adress[GetQuestionsCount("7questionsCyphered")].var4 = "4) " + var4;
+			adress[GetQuestionsCount("7questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(adress, "7questionsCyphered",1);
+		}; break;
 
-	case 5:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
+		case 8:
+		{
+			cout << "¬ведите вопрос: " << endl;
+			getline(cin, quest);
+			cout << "¬ведите варианты ответа: " << endl;
+			cout << "1. ";
+			getline(cin, var1);
+			cout << endl;
+			cout << "2. ";
+			getline(cin, var2);
+			cout << endl;
+			cout << "3. ";
+			getline(cin, var3);
+			cout << endl;
+			cout << "4. ";
+			getline(cin, var4);
+			cout << endl;
+			cout << "¬ведите номер правильного варианта ответа: ";
+			getline(cin, answer);
 
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
-
-		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].quest = quest;
-		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].var1 = var1;
-		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].var2 = var2;
-		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].var3 = var3;
-		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].var4 = var4;
-		structs[GetQuestionsCount("5questionsCyphered.txt") + 1].answer = answer;
-	}; break;
-
-	case 6:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
-
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
-
-		files[GetQuestionsCount("6questionsCyphered.txt") + 1].quest = quest;
-		files[GetQuestionsCount("6questionsCyphered.txt") + 1].var1 = var1;
-		files[GetQuestionsCount("6questionsCyphered.txt") + 1].var2 = var2;
-		files[GetQuestionsCount("6questionsCyphered.txt") + 1].var3 = var3;
-		files[GetQuestionsCount("6questionsCyphered.txt") + 1].var4 = var4;
-		files[GetQuestionsCount("6questionsCyphered.txt") + 1].answer = answer;
-	}; break;
-
-	case 7:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
-
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
-
-		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].quest = quest;
-		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].var1 = var1;
-		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].var2 = var2;
-		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].var3 = var3;
-		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].var4 = var4;
-		adress[GetQuestionsCount("7questionsCyphered.txt") + 1].answer = answer;
-	}; break;
-
-	case 8:
-	{
-		cout << "¬ведите вопрос: " << endl;
-		cin >> quest;
-		cout << "¬ведите варианты ответа: " << endl;
-		cout << "1. "; cin >> var1;
-		cout << "2. "; cin >> var2;
-		cout << "3. "; cin >> var3;
-		cout << "4. "; cin >> var4;
-
-		cout << "¬ведите номер правильного варианта ответа: "; cin >> answer;
-
-		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].quest = quest;
-		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].var1 = var1;
-		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].var2 = var2;
-		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].var3 = var3;
-		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].var4 = var4;
-		dynamic[GetQuestionsCount("8questionsCyphered.txt") + 1].answer = answer;
-	}; break;
-
+			dynamic[GetQuestionsCount("8questionsCyphered")].quest = quest;
+			dynamic[GetQuestionsCount("8questionsCyphered")].var1 = "1) " + var1;
+			dynamic[GetQuestionsCount("8questionsCyphered")].var2 = "2) " + var2;
+			dynamic[GetQuestionsCount("8questionsCyphered")].var3 = "3) " + var3;
+			dynamic[GetQuestionsCount("8questionsCyphered")].var4 = "4) " + var4;
+			dynamic[GetQuestionsCount("8questionsCyphered")].answer = answer;
+			UpdateQuestionsFile(dynamic, "8questionsCyphered",1);
+		}; break;
+		default: return;
 	}
-
 	return;
 }
 
@@ -630,24 +698,23 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 		cout << "0. ¬ыход" << endl;
 		cout << "¬ведите номер темы:" << endl;
 		cin >> ch1;
-		srand(time(NULL));
 		switch (ch1)
 		{
-		case 1: { theme_num = 1; break; }
-		case 2: { theme_num = 2; break; }
-		case 3: { theme_num = 3; break; }
-		case 4: { theme_num = 4; break; }
-		case 5: { theme_num = 5; break; }
-		case 6: { theme_num = 6; break; }
-		case 7: { theme_num = 7; break; }
-		case 8: { theme_num = 8; break; }
+			case 1: theme_num = 1; break; 
+			case 2: theme_num = 2; break;
+			case 3: theme_num = 3; break;
+			case 4: theme_num = 4; break;
+			case 5: theme_num = 5; break;
+			case 6: theme_num = 6; break;
+			case 7: theme_num = 7; break;
+			case 8: theme_num = 8; break;
 
-		case 0: return;
+			case 0: return;
 
-		default: 
-		{
-			cout << "Ќеверный ввод!" << endl;
-		}
+			default: 
+			{
+				cout << "Ќеверный ввод!" << endl;
+			}
 
 		}
 
@@ -674,8 +741,8 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 			}
 			switch (ch2)
 			{
-			case 1: {system("cls"); QuestionDelete(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); break; }
-			case 2: {system("cls"); QuestionAdd(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); break; }
+			case 1: {system("cls"); QuestionDelete(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); }; break;
+			case 2: {system("cls"); QuestionAdd(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); }; break;
 			case 0: return;
 			}
 
