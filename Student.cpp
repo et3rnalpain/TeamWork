@@ -8,7 +8,6 @@
 #include <algorithm>
 #include "FileModule.h"
 using namespace std;
-
 int SetMark(int wrong, int &mark)
 {
 	if (wrong < 2) mark = 5;
@@ -56,6 +55,25 @@ void Rand5(int* arr, const char* name)
 			}
 		}
 	}
+}
+int CountCheck(user users[], int userid)
+{
+	int count = 0;
+	if (stoi(users[userid].o1) != 0) count += 1;
+	if (stoi(users[userid].o2) != 0) count += 1;
+	if (stoi(users[userid].o3) != 0) count += 1;
+	if (stoi(users[userid].o4) != 0) count += 1;
+	if (stoi(users[userid].o5) != 0) count += 1;
+	if (stoi(users[userid].o6) != 0) count += 1;
+	if (stoi(users[userid].o7) != 0) count += 1;
+	if (stoi(users[userid].o8) != 0) count += 1;
+	return count;
+}
+double SrMark(user users[], int userid, int n)
+{
+	double srmark;
+	srmark = (stoi(users[userid].o1) + stoi(users[userid].o2) + stoi(users[userid].o3) + stoi(users[userid].o4) + stoi(users[userid].o5) + stoi(users[userid].o6) + stoi(users[userid].o7) + stoi(users[userid].o8)) / (n * 1.0);
+	return srmark;
 }
 void TrainingMode(question cycles[], question mass[], question stroki[], question recurse[], question structs[], question files[], question adress[], question dynamic[])
 {
@@ -252,6 +270,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o1 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 2:
@@ -278,6 +298,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o2 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 3:
@@ -304,6 +326,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o3 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 4:
@@ -330,6 +354,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o4 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 5:
@@ -356,6 +382,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o5 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 6:
@@ -382,6 +410,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o6 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 7:
@@ -408,6 +438,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o7 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 8:
@@ -434,6 +466,8 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			}
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].o8 = to_string(SetMark(wrong, mark));
+			int n = CountCheck(users, userid);
+			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
 		} break;
 		case 0: break;
