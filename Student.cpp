@@ -505,7 +505,7 @@ void StudentMenu(question cycles[], question mass[], question stroki[], question
 	{
 	case 1: TrainingMode(cycles, mass, stroki, recurse, structs,files,adress,dynamic); break;
 	case 2: TestingMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic, users, userid); break;
-	case 3: ExaminationMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic); break;
+	case 3: ExaminationMode(cycles, mass, stroki, recurse, structs, files, adress, dynamic, users, userid); break;
 	default: cout << "Неверный пункт меню";
 	}
 }
