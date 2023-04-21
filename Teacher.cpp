@@ -140,19 +140,12 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cin >> delete_num;
 
 			delete_count++;
-			cycles[delete_num - 1].quest = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest;
-			cycles[delete_num - 1].var1 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
-			cycles[delete_num - 1].var2 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
-			cycles[delete_num - 1].var3 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3;
-			cycles[delete_num - 1].var4 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4;
-			cycles[delete_num - 1].answer = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer;
-
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var2 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer = " ";
+			cycles[delete_num - 1].quest = " ";
+			cycles[delete_num - 1].var1 = " ";
+			cycles[delete_num - 1].var2 = " ";
+			cycles[delete_num - 1].var3 = " ";
+			cycles[delete_num - 1].var4 = " ";
+			cycles[delete_num - 1].answer = " ";
 			
 			system("cls");
 
