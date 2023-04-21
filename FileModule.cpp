@@ -1,7 +1,7 @@
 #pragma once
+#include <iostream>
 #include "FileModule.h"
 #include <fstream>
-#include <iostream>
 #include <string.h>
 #include <windows.h>
 #include "mainstructinit.h"
@@ -20,27 +20,33 @@ struct Bukva
 
 void UpdateUsersLogs(user users[], int d)
 {
-	fstream f;
-	f.open("LogsCyphered.txt");
+	ofstream f;
+	string name;
 	int count = GetUsersCount("LogsCyphered");
-	for (int z = 0; z < 100; z++) if (users[z].Login == "0" || users[z].Password == "0") {
-		users[z].Login = ""; users[z].Password = ""; users[z].Name = ""; users[z].Surname = ""; users[z].type = ""; users[z].o1 = users[z].o2 = users[z].o3 = users[z].o4 = users[z].o5 = users[z].o6 = users[z].o7 = users[z].o8 = users[z].oi = users[z].os = "";
-	}
-	for (int i = 0; i < count-d; i++)
-	{
-		if (users[i].Login != " " && users[i].Login != "  " && users[i].Login != "")
+	f.open("LogsCyphered.txt", ios::trunc);
+	for (int z = 0; z < count + d; z++) {
+		if (users[z].Login == "0" || users[z].Password == "0" || users[z].Login == " " || users[z].Login == "")
 		{
-			f << shifrtext(users[i].Login) << " " << shifrtext(users[i].Password) << " " << shifrtext(users[i].Name) << " " << shifrtext(users[i].Surname) << " " << shifrtext(users[i].type) << " "
-				<< shifrtext(users[i].o1) << " " << shifrtext(users[i].o2) << " " << shifrtext(users[i].o3) << " " << shifrtext(users[i].o4) << " " << shifrtext(users[i].o5) << " "
-				<< shifrtext(users[i].o6) << " " << shifrtext(users[i].o7) << " " << shifrtext(users[i].o8) << " " << shifrtext(users[i].oi) << " " << shifrtext(users[i].os) << endl;
+			users[z].Login = ""; users[z].Password = ""; users[z].Name = ""; users[z].Surname = ""; users[z].type = ""; users[z].o1 = users[z].o2 = users[z].o3 = users[z].o4 = users[z].o5 = users[z].o6 = users[z].o7 = users[z].o8 = users[z].oi = users[z].os = "";
 		}
 	}
+	for (int i = 0; i < count + d;i++)
+	{
+		if (users[i].Login != "" && users[i].Login != " ") 
+		{
+			name = shifrtext(users[i].Login) + " " + shifrtext(users[i].Password) + " " + shifrtext(users[i].Name) + " " + shifrtext(users[i].Surname) + " " + shifrtext(users[i].type) + " " + shifrtext(users[i].o1) + " " + shifrtext(users[i].o2) + " " + shifrtext(users[i].o3) + " " + shifrtext(users[i].o4) + " " + shifrtext(users[i].o5) + " "
+				+ shifrtext(users[i].o6) + " " + shifrtext(users[i].o7) + " " + shifrtext(users[i].o8) + " " + shifrtext(users[i].oi) + " " + shifrtext(users[i].os) + "\n";
+			f << name;
+		}
+	}
+	f.close();
+	RefreshUsers(users);
 }
 
 void UpdateQuestionsFile(question quests[], string filename, int d)
 {
-	fstream f;
-	f.open(filename + ".txt");
+	ofstream f;
+	f.open(filename + ".txt", ios::trunc);
 	int count = GetQuestionsCount(filename);
 	for (int i = 0; i < count+d; i++)
 	{
@@ -49,6 +55,7 @@ void UpdateQuestionsFile(question quests[], string filename, int d)
 			f << shifrtext(quests[i].quest) << endl << shifrtext(quests[i].var1) << endl << shifrtext(quests[i].var2) << endl << shifrtext(quests[i].var3) << endl << shifrtext(quests[i].var4) << endl << shifrtext(quests[i].answer) << endl;
 		}
 	}
+	f.close();
 
 }
 
@@ -58,7 +65,8 @@ int GetQuestionsCount(string filename)
 	string v = "";
 	fstream fin;
 	fin.open(filename + ".txt");
-	while (!fin.eof()) { getline(fin, v); x++;}
+	while (!fin.eof()) { getline(fin, v); if (v != "")x++;}
+	fin.close();
 	return x / 6;
 }
 
@@ -68,34 +76,60 @@ int GetUsersCount(string filename)
 	string v = "";
 	fstream fin;
 	fin.open(filename + ".txt");
-	while (!fin.eof()) { getline(fin, v); x++; }
+	while (!fin.eof()) { getline(fin, v);if(v!="")x++; }
+	fin.close();
 	return x;
+}
+
+void RefreshUsers(user users[]) 
+{
+	ifstream fin;
+	string log, pas, line;
+	fin.open("LogsCyphered.txt");
+	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
+	{
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Login = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Password = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Name = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Surname = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].type = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o1 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o2 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o3 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o4 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o5 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o6 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o7 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o8 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].oi = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].os = deshifrtext(line);
+	}
+	fin.close();
 }
 
 int Autorization(user users[])
 {
-	fstream fin;
+	ifstream fin;
 	string log, pas, line;
-
 	fin.open("LogsCyphered.txt");
 	for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
 	{
 		
-		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Login = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Password = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Name = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL)) users[i].Surname = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL)) users[i].type = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o1 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL)) users[i].o2 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o3 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o4 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o5 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o6 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o7 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].o8 = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].oi = deshifrtext(line);
-		fin >> line; if (line != " " && line != to_string(NULL))  users[i].os = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Login = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Password = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Name = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].Surname = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].type = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o1 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o2 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o3 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o4 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o5 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o6 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o7 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].o8 = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].oi = deshifrtext(line);
+		fin >> line; if (line != "" && line != " " && line != to_string(NULL)) users[i].os = deshifrtext(line);
 
 	}
 	while (true)

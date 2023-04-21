@@ -10,7 +10,7 @@
 
 int main()
 {
-	int userid;
+	int userid, ch;
 	question questsCycle[50];
 	question questsMassive[50];
 	question questsStroki[50];
@@ -21,7 +21,6 @@ int main()
 	question questsDynamicMemory[50];
 	user users[100];
 	setlocale(LC_ALL, "Rus");
-	cout << "Система тестирования по курсу Программирование" << endl;
 	DownloadingQuestions(questsCycle,"1questionsCyphered.txt");
 	DownloadingQuestions(questsMassive, "2questionsCyphered.txt");
 	DownloadingQuestions(questsStroki, "3questionsCyphered.txt");
@@ -30,15 +29,28 @@ int main()
 	DownloadingQuestions(questsFiles, "6questionsCyphered.txt");
 	DownloadingQuestions(questsAdress, "7questionsCyphered.txt");
 	DownloadingQuestions(questsDynamicMemory, "8questionsCyphered.txt");
-	userid = Autorization(users);
-	if (userid == 0)
+	do
 	{
-		TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users);
-	}
-	else 
-	{
-		StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory,users,userid);
-	}
-	UpdateUsersLogs(users, 0);
+		system("cls");
+		cout << "Система тестирования по курсу Программирование" << endl;
+		cout << "1. Авторизация" << endl;
+		cout << "2. Выход из программы" << endl;
+		cin >> ch;
+		system("cls");
+		if (ch == 1)
+		{
+			userid = Autorization(users);
+			cout << userid;
+			if (userid == 0)
+			{
+				TeacherMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory, users);
+			}
+			else
+			{
+				StudentMenu(questsCycle, questsMassive, questsStroki, questsRecursia, questsStructure, questsFiles, questsAdress, questsDynamicMemory, users, userid);
+			}
+		}
+		else break;
+	} while (ch!=0);
 	system("pause");
 }

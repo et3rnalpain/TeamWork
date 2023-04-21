@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 using namespace std;
+
 void StudentListChange(user users[])
 {
 	int ch2;
@@ -22,28 +23,28 @@ void StudentListChange(user users[])
 		switch (ch2)
 		{
 		case 1: {
+			int index = GetUsersCount("LogsCyphered");
 			string new_name, new_surname, new_login, new_password;
 			cout << "Введите фамилию нового студента: "; cin >> new_surname;
 			cout << "Введите имя нового студента: "; cin >> new_name;
 			cout << "Введите логин нового студента: "; cin >> new_login;
 			cout << "Введите пароль нового студента: "; cin >> new_password;
-
-			users[GetUsersCount("LogsCyphered")-1].Name = new_name;
-			users[GetUsersCount("LogsCyphered")-1].Surname = new_surname;
-			users[GetUsersCount("LogsCyphered")-1].Login = new_login;
-			users[GetUsersCount("LogsCyphered")-1].Password = new_password;
-			users[GetUsersCount("LogsCyphered")-1].type = "student";
-			users[GetUsersCount("LogsCyphered")-1].o1 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o2 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o3 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o4 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o5 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o6 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o7 = "0";
-			users[GetUsersCount("LogsCyphered")-1].o8 = "0";
-			users[GetUsersCount("LogsCyphered")-1].oi = "0";
-			users[GetUsersCount("LogsCyphered")-1].os = "0";
-			UpdateUsersLogs(users, 0);
+			users[index].Name = new_name;
+			users[index].Surname = new_surname;
+			users[index].Login = new_login;
+			users[index].Password = new_password;
+			users[index].type = "student";
+			users[index].o1 = "0";
+			users[index].o2 = "0";
+			users[index].o3 = "0";
+			users[index].o4 = "0";
+			users[index].o5 = "0";
+			users[index].o6 = "0";
+			users[index].o7 = "0";
+			users[index].o8 = "0";
+			users[index].oi = "0";
+			users[index].os = "0";
+			UpdateUsersLogs(users, 1);
 		}; break;
 
 		case 2: {
@@ -55,40 +56,24 @@ void StudentListChange(user users[])
 			{
 				if (users[i].Surname == delete_surname && users[i].Name == delete_name)
 				{
-					for (int z = i; z < GetUsersCount("LogsCyphered")-1; z++)
-					{
-						users[z].Name = users[z+1].Name;
-						users[z].Surname = users[z+1].Surname;
-						users[z].Login = users[z+1].Login;
-						users[z].Password = users[z+1].Password;
-						users[z].type = users[z+1].type;
-						users[z].o1 = users[z+1].o1;
-						users[z].o2 = users[z+1].o2;
-						users[z].o3 = users[z+1].o3;
-						users[z].o4 = users[z+1].o4;
-						users[z].o5 = users[z+1].o5;
-						users[z].o6 = users[z+1].o6;
-						users[z].o7 = users[z+1].o7;
-						users[z].o8 = users[z+1].o8;
-						users[z].oi = users[z+1].oi;
-						users[z].os = users[z+1].os;
-					}
-					users[GetUsersCount("LogsCyphered")-1].Name = "";
-					users[GetUsersCount("LogsCyphered")-1].Surname = "";
-					users[GetUsersCount("LogsCyphered")-1].Login = "";
-					users[GetUsersCount("LogsCyphered")-1].Password = "";
-					users[GetUsersCount("LogsCyphered")-1].type = "";
-					users[GetUsersCount("LogsCyphered")-1].o1 = "";
-					users[GetUsersCount("LogsCyphered")-1].o2 = "";
-					users[GetUsersCount("LogsCyphered")-1].o3 = "";
-					users[GetUsersCount("LogsCyphered")-1].o4 = "";
-					users[GetUsersCount("LogsCyphered")-1].o5 = "";
-					users[GetUsersCount("LogsCyphered")-1].o6 = "";
-					users[GetUsersCount("LogsCyphered")-1].o7 = "";
-					users[GetUsersCount("LogsCyphered")-1].o8 = "";
-					users[GetUsersCount("LogsCyphered")-1].oi = "";
-					users[GetUsersCount("LogsCyphered")-1].os = "";
+					users[i].Name = "";
+					users[i].Surname = "";
+					users[i].Login = "";
+					users[i].Password = "";
+					users[i].type = "";
+					users[i].o1 = "";
+					users[i].o2 = "";
+					users[i].o3 = "";
+					users[i].o4 = "";
+					users[i].o5 = "";
+					users[i].o6 = "";
+					users[i].o7 = "";
+					users[i].o8 = "";
+					users[i].oi = "";
+					users[i].os = "";
+					
 				}
+
 			}
 			UpdateUsersLogs(users, 1);
 		}; break;
@@ -97,9 +82,9 @@ void StudentListChange(user users[])
 		{
 			cout << "Список студентов: " << endl << endl;
 
-			for (int i = 0; i < GetUsersCount("LogsCyphered"); i++)
+			for (int i = 0; i < GetUsersCount("LogsCyphered")+1; i++)
 			{
-				if (users[i].type == "teacher")
+				if (users[i].type == "teacher" || users[i].Login == users[i].os)
 					continue;
 				cout << users[i].Name << " " << users[i].Surname << endl;
 				cout << "Логин: " << users[i].Login << endl;
@@ -108,7 +93,6 @@ void StudentListChange(user users[])
 					<< " " << users[i].o6 << " " << users[i].o7 << " " << users[i].o8 << endl;
 				cout << "Средний балл: " << users[i].os << endl;
 				cout << "Оценка за итоговый тест: " << users[i].oi << endl;
-
 				cout << endl;
 			}
 		}; break;
@@ -122,7 +106,7 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 {
 	string quest, var1, var2, var3, var4, answer;
 	int delete_num, delete_count = 0;
-
+	ofstream fin;
 	switch (theme_num)
 	{
 
@@ -140,18 +124,25 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cin >> delete_num;
 
 			delete_count++;
-			cycles[delete_num - 1].quest = " ";
-			cycles[delete_num - 1].var1 = " ";
-			cycles[delete_num - 1].var2 = " ";
-			cycles[delete_num - 1].var3 = " ";
-			cycles[delete_num - 1].var4 = " ";
-			cycles[delete_num - 1].answer = " ";
-			
+			cycles[delete_num - 1].quest = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest;
+			cycles[delete_num - 1].var1 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
+			cycles[delete_num - 1].var2 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
+			cycles[delete_num - 1].var3 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3;
+			cycles[delete_num - 1].var4 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4;
+			cycles[delete_num - 1].answer = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer;
+
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var2 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4 = " ";
+			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer = " ";
+
 			system("cls");
 
 			cout << "Редактированный список вопросов: " << endl << endl;
 
-			for (int i = 0; i < GetQuestionsCount("1questionsCyphered") - delete_count; i++)
+			for (int i = 0; i < GetQuestionsCount("2questionsCyphered") - delete_count; i++)
 			{
 				cout << i + 1 << ". " << cycles[i].quest << endl;
 			}
@@ -691,57 +682,32 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 		cout << "0. Выход" << endl;
 		cout << "Введите номер темы:" << endl;
 		cin >> ch1;
-		switch (ch1)
+		if (ch1 > 0 && ch1 < 7) 
 		{
-			case 1: theme_num = 1; break; 
-			case 2: theme_num = 2; break;
-			case 3: theme_num = 3; break;
-			case 4: theme_num = 4; break;
-			case 5: theme_num = 5; break;
-			case 6: theme_num = 6; break;
-			case 7: theme_num = 7; break;
-			case 8: theme_num = 8; break;
-
-			case 0: return;
-
-			default: 
-			{
-				cout << "Неверный ввод!" << endl;
-			}
-
+			theme_num = ch1;
 		}
-
+		else 
+		{
+			cout << "Неверный ввод" << endl;
+			return;
+		}
 		system("cls");
-
-		cout << "Выберите действие: " << endl;
-		cout << "1. Удалить вопрос" << endl;
-		cout << "2. Добавить вопрос" << endl;
-		cout << "Нажмите 0, чтобы выйти" << endl;
-		
-
 		do {
+			system("cls");
+			cout << "Выберите действие: " << endl;
+			cout << "1. Удалить вопрос" << endl;
+			cout << "2. Добавить вопрос" << endl;
+			cout << "Нажмите 0, чтобы выйти" << endl;
 			cin >> ch2;
-
-			while (ch2 < 0 || ch2 > 2)
-			{
-				system("cls");
-				cout << "Неверный ввод!" << endl;
-				cout << "Выберите действие: " << endl;
-				cout << "1. Удалить вопрос" << endl;
-				cout << "2. Добавить вопрос" << endl;
-				cout << "Нажмите 0, чтобы выйти" << endl;
-				cin >> ch2;
-			}
 			switch (ch2)
 			{
 			case 1: {system("cls"); QuestionDelete(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); }; break;
 			case 2: {system("cls"); QuestionAdd(theme_num, cycles, mass, stroki, recurse, structs, files, adress, dynamic); }; break;
 			case 0: return;
 			}
-
 		} while (ch2 != 0);
 	} while (ch1 != 0);
-
+	return;
 	
 }
 

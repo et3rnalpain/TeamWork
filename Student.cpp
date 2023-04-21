@@ -273,6 +273,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 2:
 		{
@@ -301,6 +302,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 3:
 		{
@@ -329,6 +331,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 4:
 		{
@@ -357,6 +360,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 5:
 		{
@@ -385,6 +389,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 6:
 		{
@@ -413,6 +418,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 7:
 		{
@@ -441,6 +447,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 8:
 		{
@@ -469,6 +476,7 @@ void TestingMode(question cycles[], question mass[], question stroki[], question
 			int n = CountCheck(users, userid);
 			users[userid].os = to_string(SrMark(users, userid, n));
 			cout << endl << "Оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		} break;
 		case 0: break;
 		default: cout << endl << "Неверно введён пункт меню" << endl;
@@ -519,6 +527,7 @@ void ExaminationMode(question cycles[], question mass[], question stroki[], ques
 			cout << endl << "Кол-во ошибок: " << wrong << endl;
 			users[userid].oi = to_string(SetMark(wrong, mark));
 			cout << endl << "Ваша оценка: " << mark << endl;
+			UpdateUsersLogs(users, 0);
 		}break;
 		case 0: break;
 		default: cout << "Неправильный выбор пункта меню" << endl; break;
