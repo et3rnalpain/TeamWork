@@ -106,7 +106,6 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 {
 	string quest, var1, var2, var3, var4, answer;
 	int delete_num, delete_count = 0;
-	ofstream fin;
 	switch (theme_num)
 	{
 
@@ -122,30 +121,25 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			cycles[delete_num - 1].quest = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest;
-			cycles[delete_num - 1].var1 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
-			cycles[delete_num - 1].var2 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1;
-			cycles[delete_num - 1].var3 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3;
-			cycles[delete_num - 1].var4 = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4;
-			cycles[delete_num - 1].answer = cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer;
-
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].quest = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var1 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var2 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var3 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].var4 = " ";
-			cycles[GetQuestionsCount("1questionsCyphered") - delete_count].answer = " ";
+			cycles[delete_num - 1].quest = " ";
+			cycles[delete_num - 1].var1 = " ";
+			cycles[delete_num - 1].var2 = " ";
+			cycles[delete_num - 1].var3 = " ";
+			cycles[delete_num - 1].var4 = " ";
+			cycles[delete_num - 1].answer = " ";
 
 			system("cls");
 
 			cout << "Редактированный список вопросов: " << endl << endl;
 
-			for (int i = 0; i < GetQuestionsCount("2questionsCyphered") - delete_count; i++)
+			for (int i = 0; i < GetQuestionsCount("1questionsCyphered") - delete_count; i++)
 			{
 				cout << i + 1 << ". " << cycles[i].quest << endl;
 			}
+			UpdateQuestionsFile(cycles,"1questionsCyphered",0);
+			DownloadingQuestions(cycles, "1questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -161,21 +155,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			mass[delete_num - 1].quest = mass[GetQuestionsCount("2questionsCyphered") - delete_count].quest;
-			mass[delete_num - 1].var1 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var1;
-			mass[delete_num - 1].var2 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var1;
-			mass[delete_num - 1].var3 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var3;
-			mass[delete_num - 1].var4 = mass[GetQuestionsCount("2questionsCyphered") - delete_count].var4;
-			mass[delete_num - 1].answer = mass[GetQuestionsCount("2questionsCyphered") - delete_count].answer;
-
-			mass[GetQuestionsCount("2questionsCyphered") - delete_count].quest = " ";
-			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var1 = " ";
-			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var2 = " ";
-			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var3 = " ";
-			mass[GetQuestionsCount("2questionsCyphered") - delete_count].var4 = " ";
-			mass[GetQuestionsCount("2questionsCyphered") - delete_count].answer = " ";
+			mass[delete_num - 1].quest = " ";
+			mass[delete_num - 1].var1 = " ";
+			mass[delete_num - 1].var2 = " ";
+			mass[delete_num - 1].var3 = " ";
+			mass[delete_num - 1].var4 = " ";
+			mass[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -185,6 +172,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << mass[i].quest << endl;
 			}
+			UpdateQuestionsFile(mass, "2questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(mass, "2questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -200,21 +189,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			stroki[delete_num - 1].quest = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].quest;
-			stroki[delete_num - 1].var1 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var1;
-			stroki[delete_num - 1].var2 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var1;
-			stroki[delete_num - 1].var3 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var3;
-			stroki[delete_num - 1].var4 = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var4;
-			stroki[delete_num - 1].answer = stroki[GetQuestionsCount("3questionsCyphered") - delete_count].answer;
-
-			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].quest = " ";
-			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var1 = " ";
-			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var2 = " ";
-			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var3 = " ";
-			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].var4 = " ";
-			stroki[GetQuestionsCount("3questionsCyphered") - delete_count].answer = " ";
+			stroki[delete_num - 1].quest = " ";
+			stroki[delete_num - 1].var1 = " ";
+			stroki[delete_num - 1].var2 = " ";
+			stroki[delete_num - 1].var3 = " ";
+			stroki[delete_num - 1].var4 = " ";
+			stroki[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -224,6 +206,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << stroki[i].quest << endl;
 			}
+			UpdateQuestionsFile(stroki, "3questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(stroki, "3questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -239,21 +223,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			recurse[delete_num - 1].quest = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].quest;
-			recurse[delete_num - 1].var1 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var1;
-			recurse[delete_num - 1].var2 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var1;
-			recurse[delete_num - 1].var3 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var3;
-			recurse[delete_num - 1].var4 = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var4;
-			recurse[delete_num - 1].answer = recurse[GetQuestionsCount("4questionsCyphered") - delete_count].answer;
-
-			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].quest = " ";
-			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var1 = " ";
-			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var2 = " ";
-			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var3 = " ";
-			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].var4 = " ";
-			recurse[GetQuestionsCount("4questionsCyphered") - delete_count].answer = " ";
+			recurse[delete_num - 1].quest = " ";
+			recurse[delete_num - 1].var1 = " ";
+			recurse[delete_num - 1].var2 = " ";
+			recurse[delete_num - 1].var3 = " ";
+			recurse[delete_num - 1].var4 = " ";
+			recurse[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -263,6 +240,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << recurse[i].quest << endl;
 			}
+			UpdateQuestionsFile(recurse, "4questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(recurse, "4questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -278,21 +257,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			structs[delete_num - 1].quest = structs[GetQuestionsCount("5questionsCyphered") - delete_count].quest;
-			structs[delete_num - 1].var1 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var1;
-			structs[delete_num - 1].var2 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var1;
-			structs[delete_num - 1].var3 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var3;
-			structs[delete_num - 1].var4 = structs[GetQuestionsCount("5questionsCyphered") - delete_count].var4;
-			structs[delete_num - 1].answer = structs[GetQuestionsCount("5questionsCyphered") - delete_count].answer;
-
-			structs[GetQuestionsCount("5questionsCyphered") - delete_count].quest = " ";
-			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var1 = " ";
-			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var2 = " ";
-			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var3 = " ";
-			structs[GetQuestionsCount("5questionsCyphered") - delete_count].var4 = " ";
-			structs[GetQuestionsCount("5questionsCyphered") - delete_count].answer = " ";
+			structs[delete_num - 1].quest = " ";
+			structs[delete_num - 1].var1 = " ";
+			structs[delete_num - 1].var2 = " ";
+			structs[delete_num - 1].var3 = " ";
+			structs[delete_num - 1].var4 = " ";
+			structs[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -302,6 +274,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << structs[i].quest << endl;
 			}
+			UpdateQuestionsFile(structs, "5questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(structs, "5questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -317,21 +291,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			files[delete_num - 1].quest = files[GetQuestionsCount("6questionsCyphered") - delete_count].quest;
-			files[delete_num - 1].var1 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var1;
-			files[delete_num - 1].var2 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var1;
-			files[delete_num - 1].var3 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var3;
-			files[delete_num - 1].var4 = files[GetQuestionsCount("6questionsCyphered") - delete_count].var4;
-			files[delete_num - 1].answer = files[GetQuestionsCount("6questionsCyphered") - delete_count].answer;
-
-			files[GetQuestionsCount("6questionsCyphered") - delete_count].quest = " ";
-			files[GetQuestionsCount("6questionsCyphered") - delete_count].var1 = " ";
-			files[GetQuestionsCount("6questionsCyphered") - delete_count].var2 = " ";
-			files[GetQuestionsCount("6questionsCyphered") - delete_count].var3 = " ";
-			files[GetQuestionsCount("6questionsCyphered") - delete_count].var4 = " ";
-			files[GetQuestionsCount("6questionsCyphered") - delete_count].answer = " ";
+			files[delete_num - 1].quest = " ";
+			files[delete_num - 1].var1 = " ";
+			files[delete_num - 1].var2 = " ";
+			files[delete_num - 1].var3 = " ";
+			files[delete_num - 1].var4 = " ";
+			files[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -341,6 +308,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << files[i].quest << endl;
 			}
+			UpdateQuestionsFile(files, "6questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(files, "6questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -356,21 +325,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			adress[delete_num - 1].quest = adress[GetQuestionsCount("7questionsCyphered") - delete_count].quest;
-			adress[delete_num - 1].var1 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var1;
-			adress[delete_num - 1].var2 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var1;
-			adress[delete_num - 1].var3 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var3;
-			adress[delete_num - 1].var4 = adress[GetQuestionsCount("7questionsCyphered") - delete_count].var4;
-			adress[delete_num - 1].answer = adress[GetQuestionsCount("7questionsCyphered") - delete_count].answer;
-
-			adress[GetQuestionsCount("7questionsCyphered") - delete_count].quest = " ";
-			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var1 = " ";
-			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var2 = " ";
-			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var3 = " ";
-			adress[GetQuestionsCount("7questionsCyphered") - delete_count].var4 = " ";
-			adress[GetQuestionsCount("7questionsCyphered") - delete_count].answer = " ";
+			adress[delete_num - 1].quest = " ";
+			adress[delete_num - 1].var1 = " ";
+			adress[delete_num - 1].var2 = " ";
+			adress[delete_num - 1].var3 = " ";
+			adress[delete_num - 1].var4 = " ";
+			adress[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -380,6 +342,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << adress[i].quest << endl;
 			}
+			UpdateQuestionsFile(adress, "7questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(adress, "7questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 
@@ -395,21 +359,14 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			cout << endl << "Введите номер вопроса, который вы хотите удалить.";
 			cout << endl << "Нажмите 0, чтобы выйти." << endl;
 			cin >> delete_num;
-
+			if (delete_num == 0) return;
 			delete_count++;
-			dynamic[delete_num - 1].quest = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].quest;
-			dynamic[delete_num - 1].var1 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var1;
-			dynamic[delete_num - 1].var2 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var1;
-			dynamic[delete_num - 1].var3 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var3;
-			dynamic[delete_num - 1].var4 = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var4;
-			dynamic[delete_num - 1].answer = dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].answer;
-
-			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].quest = " ";
-			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var1 = " ";
-			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var2 = " ";
-			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var3 = " ";
-			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].var4 = " ";
-			dynamic[GetQuestionsCount("8questionsCyphered") - delete_count].answer = " ";
+			dynamic[delete_num - 1].quest = " ";
+			dynamic[delete_num - 1].var1 = " ";
+			dynamic[delete_num - 1].var2 = " ";
+			dynamic[delete_num - 1].var3 = " ";
+			dynamic[delete_num - 1].var4 = " ";
+			dynamic[delete_num - 1].answer = " ";
 
 			system("cls");
 
@@ -419,6 +376,8 @@ void QuestionDelete(int theme_num, question cycles[], question mass[], question 
 			{
 				cout << i + 1 << ". " << dynamic[i].quest << endl;
 			}
+			UpdateQuestionsFile(dynamic, "8questionsCyphered", delete_num * (-1));
+			DownloadingQuestions(dynamic, "8questionsCyphered.txt");
 		} while (delete_num != 0);
 	}; break;
 	}
@@ -458,6 +417,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			cycles[GetQuestionsCount("1questionsCyphered")].var4 = "4) " + var4;
 			cycles[GetQuestionsCount("1questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(cycles, "1questionsCyphered",1);
+			DownloadingQuestions(cycles, "1questionsCyphered.txt");
 		}; break;
 
 		case 2:
@@ -487,6 +447,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			mass[GetQuestionsCount("2questionsCyphered")].var4 = "4) " + var4; 
 			mass[GetQuestionsCount("2questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(mass, "2questionsCyphered", 1);
+			DownloadingQuestions(mass, "2questionsCyphered.txt");
 		}; break;
 
 		case 3:
@@ -515,6 +476,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			stroki[GetQuestionsCount("3questionsCyphered")].var4 = "4) " + var4;
 			stroki[GetQuestionsCount("3questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(stroki, "3questionsCyphered",1);
+			DownloadingQuestions(stroki, "3questionsCyphered.txt");
 		}; break;
 
 		case 4:
@@ -544,6 +506,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			recurse[GetQuestionsCount("4questionsCyphered")].var4 = "4) " + var4;
 			recurse[GetQuestionsCount("4questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(recurse, "4questionsCyphered",1);
+			DownloadingQuestions(recurse, "4questionsCyphered.txt");
 		}; break;
 
 		case 5:
@@ -573,6 +536,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			structs[GetQuestionsCount("5questionsCyphered")].var4 = "4) " + var4;
 			structs[GetQuestionsCount("5questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(structs, "5questionsCyphered",1);
+			DownloadingQuestions(structs, "5questionsCyphered.txt");
 		}; break;
 
 		case 6:
@@ -602,6 +566,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			files[GetQuestionsCount("6questionsCyphered")].var4 = "4) " + var4;
 			files[GetQuestionsCount("6questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(files, "6questionsCyphered",1);
+			DownloadingQuestions(files, "6questionsCyphered.txt");
 		}; break;
 
 		case 7:
@@ -630,6 +595,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			adress[GetQuestionsCount("7questionsCyphered")].var4 = "4) " + var4;
 			adress[GetQuestionsCount("7questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(adress, "7questionsCyphered",1);
+			DownloadingQuestions(adress, "7questionsCyphered.txt");
 		}; break;
 
 		case 8:
@@ -659,6 +625,7 @@ void QuestionAdd(int theme_num, question cycles[], question mass[], question str
 			dynamic[GetQuestionsCount("8questionsCyphered")].var4 = "4) " + var4;
 			dynamic[GetQuestionsCount("8questionsCyphered")].answer = answer;
 			UpdateQuestionsFile(dynamic, "8questionsCyphered",1);
+			DownloadingQuestions(dynamic, "8questionsCyphered.txt");
 		}; break;
 		default: return;
 	}
@@ -682,7 +649,7 @@ void QuestionWork(question cycles[], question mass[], question stroki[], questio
 		cout << "0. Выход" << endl;
 		cout << "Введите номер темы:" << endl;
 		cin >> ch1;
-		if (ch1 > 0 && ch1 < 7) 
+		if (ch1 > 0 && ch1 < 9) 
 		{
 			theme_num = ch1;
 		}

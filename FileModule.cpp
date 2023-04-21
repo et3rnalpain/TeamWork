@@ -46,8 +46,8 @@ void UpdateUsersLogs(user users[], int d)
 void UpdateQuestionsFile(question quests[], string filename, int d)
 {
 	ofstream f;
-	f.open(filename + ".txt", ios::trunc);
 	int count = GetQuestionsCount(filename);
+	f.open(filename + ".txt", ios::trunc);
 	for (int i = 0; i < count+d; i++)
 	{
 		if (quests[i].quest != " ")
